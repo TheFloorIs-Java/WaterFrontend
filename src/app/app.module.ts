@@ -13,6 +13,7 @@ import { DisplayProductsComponent } from './components/display-products/display-
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,
