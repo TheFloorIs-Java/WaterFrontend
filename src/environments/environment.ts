@@ -5,10 +5,10 @@
 export const environment = {
   production: false,
   withCredentials: true,
-  baseUrl: "https://teamwater.azurewebsites.net",
+  baseUrl: "http://localhost:8080",
   headers: {
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': 'https://teamwater.azurewebsites.net',
+    'Access-Control-Allow-Origin': 'http://localhost:4200/',
   },
 };
 
