@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'TeamWaterFrontend'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_893B75EBA16F4C4A972A89040966DAA4 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_56BDB82A23F148C58D27DB1635F3D583 }}
           package: .
