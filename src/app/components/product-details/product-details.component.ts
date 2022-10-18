@@ -12,6 +12,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductDetailsComponent implements OnInit {
   // Plan: Retrieve product details from product-card component
   // When click on the product, open a page for product details
+  id: number = 0;
   product: Product = {
     id: 0, 
     name: "", 
@@ -20,21 +21,18 @@ export class ProductDetailsComponent implements OnInit {
     description: "", 
     image: ""
   };
+
   
-  constructor(private productService: ProductService, private router: Router ) { 
-    this.product.id = history.state.id;
-    this.product.name = history.state.name;
-    this.product.quantity = history.state.quantity;
-    this.product.price = history.state.price;
-    this.product.description = history.state.description;
-    this.product.image = history.state.image;
+  constructor(private productService: ProductService, private router: Router ) {
     
-    this.productService.getSingleProduct(this.product.id).subscribe(
-      res => console.log(res)
-    );
   }
 
   ngOnInit(): void {
+    this.productService.getSingleProduct(this.id).subscribe(
+      res => this.product = res
+    );
+    // localStorage.setItem('currentProduct', JSON.stringify(this.product));
+    // this.product = JSON.parse(localStorage.getItem('currentProduct'));
   }
 
   addToCart(product: Product): void {
