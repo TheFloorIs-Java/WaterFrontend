@@ -8,7 +8,8 @@ export const environment = {
   baseUrl: "https://teamwater.azurewebsites.net",
   headers: {
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': 'http://localhost:4200/',
+    // 'Access-Control-Allow-Origin': 'http://localhost:4200/',
+    'Access-Control-Allow-Origin': 'https://gentle-pond-0737d0d10.2.azurestaticapps.net',
   },
 };
 
