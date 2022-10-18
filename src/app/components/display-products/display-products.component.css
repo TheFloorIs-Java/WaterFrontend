@@ -1,8 +1,13 @@
 /* Item sizing */
 .cardListItem {
     flex: 0 0 307px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     padding-bottom: 6%;
     max-width: 400px;
+    margin:0;
     /* margin-left: 6%; */
   }
     
@@ -40,9 +45,27 @@
 .container 
 {
   margin-top: 1%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  
+}
+
+.row {
+  row-gap: 20px;
+  
 }
 
 .col-4
 {
   margin-bottom: 1%;
+}
+
+.title-group {
+  position: relative;
+  margin-top:10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
 }
