@@ -5,11 +5,11 @@
 export const environment = {
   production: false,
   withCredentials: true,
-  baseUrl: "https://teamwater.azurewebsites.net",
+  baseUrl: "http://localhost:8080",
   headers: {
     'Content-Type': 'application/json',
-    // 'Access-Control-Allow-Origin': 'http://localhost:4200/',
-    'Access-Control-Allow-Origin': 'https://gentle-pond-0737d0d10.2.azurestaticapps.net',
+    'Access-Control-Allow-Origin': 'http://localhost:4200/',
+    // 'Access-Control-Allow-Origin': 'https://gentle-pond-0737d0d10.2.azurestaticapps.net',
   },
 };
 
