@@ -68,6 +68,12 @@ export class ProductCardComponent implements OnInit{
       
   }
 
+  // Open product details page for when clicking the product card
+  getProductDetails(): void {
+    window.location.reload();
+
+  }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
