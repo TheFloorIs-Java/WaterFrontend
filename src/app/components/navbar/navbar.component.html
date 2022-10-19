@@ -6,6 +6,7 @@
       Katara's Fanclub
     </h4>
     <form class="form-inline right-items">
+
       <button class="btn btn-light" [routerLink]="['/cart']">
         Cart
         <span class="badge badge-info">{{cartCount}}</span>
@@ -15,7 +16,17 @@
   </nav>
 
   <div class="light-switch theme-switch-wrapper">
-    <img [ngClass]=" darktheme === true ? 'darkBulb': 'bulb' "   (click)="toggled();">
+
+      <button [ngClass]=" darktheme === true ? 'hide switcher': 'darkBulb switcher' " (click)="toggled();">
+        <img src="../../../assets/images/bulb-dark.png" width="48.3px"
+        height="50px">
+      </button>
+      <button [ngClass]=" darktheme === true ? 'bulb switcher' : 'hide switcher' " (click)="toggled();">
+        <img src="../../../assets/images/bulb-light.png" width="48.3px"
+        height="50px">
+      </button>
+
+
   </div>
 
 </div>
