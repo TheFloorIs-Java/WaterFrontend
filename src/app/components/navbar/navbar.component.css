@@ -62,25 +62,45 @@
 
 
 .bulb {
-  z-index:100;
-  background-image: url("../../../assets/images/bulb-light.png");
-    object-fit: cover;
+    z-index:100;
+
     margin-top:20px;
     width:48.3px;
     height:50px;
+    transform: translateX(-6px);
 }
 
 .darkBulb {
-  z-index:100;
-  background-image: url("../../../assets/images/bulb-dark.png");
-    object-fit: cover;
+
+    z-index:100;
+
     margin-top:20px;
     width:48.3px;
     height:50px;
+    transform: translateX(-6px);
 }
 
-.bulb:hover {
+.hide {
+  display: none;
+}
+
+.switcher {
+  background-color:transparent;
+  background-repeat: no-repeat;
+  border: none;
+  outline: none;
+  margin-top:20px;
+  width:48.3px;
+  height:50px;
+}
+
+
+
+.switcher:hover {
+
    cursor:pointer;
-  transform: translateY(-4px);
+  transform: translate(-6px, -7px);
 
 }
+
+
