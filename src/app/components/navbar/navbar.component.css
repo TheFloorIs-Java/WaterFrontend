@@ -45,7 +45,7 @@
 }
 
 .light-switch {
-    
+
     margin-left: 88vw;
     background-color: #dc3546e9;
     width: 48px;
@@ -62,6 +62,17 @@
 
 
 .bulb {
+  z-index:100;
+  background-image: url("../../../assets/images/bulb-light.png");
+    object-fit: cover;
+    margin-top:20px;
+    width:48.3px;
+    height:50px;
+}
+
+.darkBulb {
+  z-index:100;
+  background-image: url("../../../assets/images/bulb-dark.png");
     object-fit: cover;
     margin-top:20px;
     width:48.3px;
@@ -71,5 +82,5 @@
 .bulb:hover {
    cursor:pointer;
   transform: translateY(-4px);
-    
+
 }

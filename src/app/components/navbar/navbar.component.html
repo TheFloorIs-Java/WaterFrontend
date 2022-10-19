@@ -1,22 +1,22 @@
 <div class="navbar-container">
 
-    <nav class="navbar2">
-        <h4 class="logo">
-            <img src="../../../assets/images/whale-light.png" width="6%" height="6%" alt="Whale">
-            Katara's Fanclub
-        </h4>
-        <form class="form-inline right-items">
-            <button class="btn btn-light" [routerLink]="['/cart']">
-                Cart
-                <span class="badge badge-info">{{cartCount}}</span>
-            </button>
-            <button class="btn btn-outline-danger my-2 my-sm-0" (click)="logout();">Logout</button>
-        </form>
-    </nav>
+  <nav class="navbar2">
+    <h4 class="logo">
+      <img src="../../../assets/images/whale-light.png" width="6%" height="6%" alt="Whale">
+      Katara's Fanclub
+    </h4>
+    <form class="form-inline right-items">
+      <button class="btn btn-light" [routerLink]="['/cart']">
+        Cart
+        <span class="badge badge-info">{{cartCount}}</span>
+      </button>
+      <button class="btn btn-outline-danger my-2 my-sm-0" (click)="logout();">Logout</button>
+    </form>
+  </nav>
 
-    <div class="light-switch">
-        <img class="bulb" src="../../../assets/images/bulb-light.png">
-    </div>
+  <div class="light-switch theme-switch-wrapper">
+    <img [ngClass]=" darktheme === true ? 'darkBulb': 'bulb' "   (click)="toggled();">
+  </div>
 
 </div>
 

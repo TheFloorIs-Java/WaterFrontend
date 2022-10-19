@@ -15,12 +15,14 @@ export class NavbarComponent implements OnInit{
   subscription!: Subscription;
 
   constructor(private authService: AuthService, private router: Router, private productService: ProductService) { }
-  
+
   ngOnInit(): void {
     this.subscription = this.productService.getCart().subscribe(
       (cart) => this.cartCount = cart.cartCount
     );
   }
+
+  darktheme : boolean = false;
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
@@ -29,6 +31,10 @@ export class NavbarComponent implements OnInit{
   logout() {
     this.authService.logout();
     this.router.navigate(['login']);
+  }
+
+  toggled(){
+    this.darktheme = !this.darktheme;
   }
 
 }
