@@ -36,7 +36,7 @@ export class NavbarComponent implements OnInit{
     );
   }
 
-  darktheme : boolean = true;
+  darktheme : boolean = false;
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
@@ -58,6 +58,8 @@ export class NavbarComponent implements OnInit{
     this.themeService.theme = !this.themeService.theme;
     this.darkModeService.toggle();
     this.darktheme = this.themeService.theme;
+
+    console.log(this.themeService.theme);
 
   }
 
