@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "build-prod": "ng build --configuration=prod --output-hashing=all",
-    "build-staging":"ng build --configuration=stage --output-hashing=all",
+    "build-staging": "ng build --configuration=stage --output-hashing=all",
     "build-qa": "ng build --configuration=qa --output-hashing=all"
   },
   "private": true,
@@ -26,6 +26,7 @@
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@ng-bootstrap/ng-bootstrap": "^13.0.0",
+    "angular-dark-mode": "^3.0.3",
     "bootstrap": "^5.1.3",
     "ngx-bootstrap": "^9.0.0",
     "rxjs": "~6.6.0",
