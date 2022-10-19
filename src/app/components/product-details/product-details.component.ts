@@ -22,17 +22,36 @@ export class ProductDetailsComponent implements OnInit {
     image: ""
   };
 
+
   
   constructor(private productService: ProductService, private router: Router ) {
-    
+    // this.product = JSON.parse(sessionStorage.getItem(String(this.id)) || '{}');
+    if (sessionStorage.getItem('currentProduct')) {
+      this.product = JSON.parse(sessionStorage.getItem('currentProduct') || '{}');
+      console.log("localstorage");
+    } else {
+      console.log(this.id);
+      console.log("nothing in sessionstorage");
+    }
   }
 
   ngOnInit(): void {
+    // Check if there is a product loaded into sessionStorage
+    // If yes, set the product to the product in sessionStorage
+    // Else, use the product id to pull from the database
+    this.id = history.state.id;
+    console.log(this.id);
+
     this.productService.getSingleProduct(this.id).subscribe(
-      res => this.product = res
+      res => { 
+        sessionStorage.setItem('currentProduct', JSON.stringify(res));
+        this.product = res;
+      }
     );
-    // localStorage.setItem('currentProduct', JSON.stringify(this.product));
-    // this.product = JSON.parse(localStorage.getItem('currentProduct'));
+
+    // this.productService.getSingleProduct(this.id).subscribe(
+    //   res => this.product = res
+    // )
   }
 
   addToCart(product: Product): void {
