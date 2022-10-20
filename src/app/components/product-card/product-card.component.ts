@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
+import { ThemeServiceService } from 'src/app/services/theme-service.service';
 
 @Component({
   selector: 'app-product-card',
@@ -21,19 +22,23 @@ export class ProductCardComponent implements OnInit{
   totalPrice: number = 0;
 
   currentProduct: Product = {
-    id: 0, 
-    name: "", 
-    quantity: 0, 
-    price: 0, 
-    description: "", 
+    id: 0,
+    name: "",
+    quantity: 0,
+    price: 0,
+    description: "",
     image: ""
   };
 
   @Input() productInfo!: Product;
 
-  constructor(private productService: ProductService, private router: Router) { }
-  
+  constructor(private productService: ProductService,
+     private router: Router,
+     public themeService : ThemeServiceService
+     ) { }
+
   ngOnInit(): void {
+
     this.subscription = this.productService.getCart().subscribe(
       (cart) => {
         this.cartCount = cart.cartCount;
@@ -41,6 +46,12 @@ export class ProductCardComponent implements OnInit{
         this.totalPrice = cart.totalPrice;
       }
     );
+  }
+
+ darktheme : boolean = false;
+
+  checkTheme(){
+    this.darktheme = this.themeService.theme;
   }
 
   addToCart(product: Product): void {
@@ -76,7 +87,7 @@ export class ProductCardComponent implements OnInit{
       }
       this.productService.setCart(cart);
     }
-      
+
   }
 
   // Open product details page for when clicking the product card
@@ -86,16 +97,16 @@ export class ProductCardComponent implements OnInit{
     console.log("Clicked on " + this.productInfo.name);
 
     // Reroutes to details page, sends the id of the product clicked to the routed component
-    this.router.navigate(["/" + this.productInfo.name + "/details"], 
-      { state: 
-        { 
+    this.router.navigate(["/" + this.productInfo.name + "/details"],
+      { state:
+        {
           id: this.productInfo.id,
           name: this.productInfo.name,
           quantity: this.productInfo.quantity,
           price: this.productInfo.price,
           description: this.productInfo.description,
           image: this.productInfo.image
-        } 
+        }
       }
     );
   }
@@ -104,7 +115,7 @@ export class ProductCardComponent implements OnInit{
     this.subscription.unsubscribe();
   }
 
-  
-  
+
+
 
 }
