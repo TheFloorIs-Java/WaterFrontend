@@ -1,12 +1,11 @@
 <div class="navbar-container">
 
-  <nav class="navbar2">
+  <nav [ngClass]=" this.darktheme=== true ? 'navbar-dark navbar0': 'navbar-light navbar0' ">
     <h4 class="logo">
       <img src="../../../assets/images/whale-light.png" width="6%" height="6%" alt="Whale">
       Katara's Fanclub
     </h4>
     <form class="form-inline right-items">
-
       <button class="btn btn-light" [routerLink]="['/cart']">
         Cart
         <span class="badge badge-info">{{cartCount}}</span>
@@ -15,16 +14,21 @@
     </form>
   </nav>
 
-  <div class="light-switch theme-switch-wrapper">
 
-      <button [ngClass]=" darktheme === true ? 'hide switcher': 'darkBulb switcher' " (click)="toggled();">
-        <img src="../../../assets/images/bulb-dark.png" width="48.3px"
-        height="50px">
-      </button>
-      <button [ngClass]=" darktheme === true ? 'bulb switcher' : 'hide switcher' " (click)="toggled();">
-        <img src="../../../assets/images/bulb-light.png" width="48.3px"
-        height="50px">
-      </button>
+
+
+  <div
+    [ngClass]=" darktheme === true ? 'light-switch-dark theme-switch-wrapper': 'light-switch-light theme-switch-wrapper' ">
+
+
+
+    <button [ngClass]=" darktheme === true ? 'hide switcher': 'darkBulb switcher' " (click)="toggled();">
+      <img src="../../../assets/images/bulb-dark.png" width="48.3px" height="50px">
+
+    </button>
+    <button [ngClass]=" darktheme === true ? 'bulb switcher' : 'hide switcher' " (click)="toggled();">
+      <img src="../../../assets/images/bulb-light.png" width="48.3px" height="50px">
+    </button>
 
 
   </div>

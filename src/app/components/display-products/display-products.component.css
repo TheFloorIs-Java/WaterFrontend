@@ -10,8 +10,8 @@
     margin:0;
     /* margin-left: 6%; */
   }
-    
-  
+
+
     /* small size viewport */
   @media screen and (max-width: 640px) {
     /* Item sizing */
@@ -30,11 +30,11 @@
       margin-right: 5%;
     }
   }
-    
+
   @supports (display: grid) {
-    .product-cards { 
+    .product-cards {
       max-width: 10000px;
-      margin: 0; 
+      margin: 0;
       padding: 3%;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -42,18 +42,18 @@
     }
   }
 
-.container 
+.container
 {
   margin-top: 1%;
   display: flex;
   flex-wrap: wrap;
   align-content: space-between;
-  
+
 }
 
 .row {
   row-gap: 20px;
-  
+
 }
 
 .col-4
@@ -64,8 +64,14 @@
 .title-group {
   position: relative;
   margin-top:10px;
+  margin-bottom:20px;
   display: flex;
   justify-content: center;
   align-items: center;
- 
+
 }
+
+
+
+
+
