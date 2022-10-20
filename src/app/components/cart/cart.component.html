@@ -3,17 +3,26 @@
     <thead>
       <tr>
         <th scope="col">ID</th>
-        <th scope="col">Name</th>
-        <th scope="col">Quantity</th>
+        <th scope="col">Name</th>         
+         <th scope="col">Quantity</th>   
         <th scope="col">Description</th>
+        
       </tr>
     </thead>
     <tbody id="cart-table-body">
         <tr *ngFor="let product of products;">
             <td>{{product.product.id}}</td>
             <td>{{product.product.name}}</td>
+      <div class="quantityBTN">
+             <button (click)="incrimentButton(product)"><i class="fas fa-plus"></i></button>  
             <td>{{product.quantity}}</td>
+             <button (click)="decrimentButton(product)"><i class="fas fa-minus"></i></button> 
+      </div>
+        <th scope="col">Action</th>
             <td>{{product.product.description}}</td>
+            <td>
+              <button (click)="deleteItemFromCart(product)"><i class="fa-solid fa-trash-can"></i></button>
+            </td>
         </tr>
     </tbody>
 </table>

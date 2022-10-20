@@ -5,6 +5,8 @@ export class Product {
     price: number;
     description: string;
     image: string;
+  static price: number;
+  
 
     constructor (id: number, name: string, quantity: number, description: string, price: number, image: string) {
         this.id = id;
