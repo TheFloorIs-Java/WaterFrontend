@@ -22,9 +22,6 @@
     --background: #121212;
 }
 
-
-
-
 body.light-mode{
     /* color: var(--on-background);
     background-color: var(--background); */
@@ -33,14 +30,16 @@ body.light-mode{
     transition: background-color 0.4s ease;
 }
 
-
 body.dark-mode{
   background-color:  #121212;
   color: #6c63ff;
   transition: background-color 0.4s ease;
 }
 
-
+ngb-rating {
+    color:darkorange;
+    font-size: 30px;
+}
 
 
 
