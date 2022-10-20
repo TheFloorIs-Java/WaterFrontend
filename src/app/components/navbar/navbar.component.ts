@@ -36,7 +36,7 @@ export class NavbarComponent implements OnInit{
     );
   }
 
-  darktheme : boolean = false;
+  darktheme : boolean = true;
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
