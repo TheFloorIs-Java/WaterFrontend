@@ -33,13 +33,6 @@ body.light-mode{
     transition: background-color 0.4s ease;
 }
 
-<<<<<<< HEAD
-/* Star-rating for product-details component */
-ngb-rating {
-    color: #FFC107;
-    font-size: 30px;
-}
-=======
 
 body.dark-mode{
   background-color:  #121212;
@@ -52,4 +45,3 @@ body.dark-mode{
 
 
 /*TESTING THEMEING*/
->>>>>>> 64d42058153e976e0d58cb11700e8008b3c7a4c9
