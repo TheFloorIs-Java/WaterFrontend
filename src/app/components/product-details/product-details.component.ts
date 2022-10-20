@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
+import { Form } from '@angular/forms';
 
 @Component({
   selector: 'app-product-details',
@@ -21,6 +22,7 @@ export class ProductDetailsComponent implements OnInit {
     description: "", 
     image: ""
   };
+  starRating: number = 0;
 
 
   
