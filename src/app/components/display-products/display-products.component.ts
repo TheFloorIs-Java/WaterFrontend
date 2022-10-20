@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product';
-import { ProductService } from 'src/app/services/product.service';
+import { ProductService } from 'src/app/services/product.service'
 
 @Component({
   selector: 'app-display-products',
@@ -8,6 +8,7 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./display-products.component.css']
 })
 export class DisplayProductsComponent implements OnInit {
+
 
   allProducts: Product[] = [];
 

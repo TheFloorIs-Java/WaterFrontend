@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+// import { Console } from 'console';
 import { Subscription } from 'rxjs';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
@@ -18,9 +20,18 @@ export class ProductCardComponent implements OnInit{
   subscription!: Subscription;
   totalPrice: number = 0;
 
+  currentProduct: Product = {
+    id: 0, 
+    name: "", 
+    quantity: 0, 
+    price: 0, 
+    description: "", 
+    image: ""
+  };
+
   @Input() productInfo!: Product;
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private router: Router) { }
   
   ngOnInit(): void {
     this.subscription = this.productService.getCart().subscribe(
@@ -68,6 +79,26 @@ export class ProductCardComponent implements OnInit{
       
   }
 
+  // Open product details page for when clicking the product card
+  getProductDetails(): void {
+    // window.location.reload();
+    // Test if the component (click) feature works
+    console.log("Clicked on " + this.productInfo.name);
+
+    // Reroutes to details page, sends the id of the product clicked to the routed component
+    this.router.navigate(["/" + this.productInfo.name + "/details"], 
+      { state: 
+        { 
+          id: this.productInfo.id,
+          name: this.productInfo.name,
+          quantity: this.productInfo.quantity,
+          price: this.productInfo.price,
+          description: this.productInfo.description,
+          image: this.productInfo.image
+        } 
+      }
+    );
+  }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
