@@ -20,15 +20,6 @@ export class ProductCardComponent implements OnInit{
   subscription!: Subscription;
   totalPrice: number = 0;
 
-  currentProduct: Product = {
-    id: 0, 
-    name: "", 
-    quantity: 0, 
-    price: 0, 
-    description: "", 
-    image: ""
-  };
-
   @Input() productInfo!: Product;
 
   constructor(private productService: ProductService, private router: Router) { }
