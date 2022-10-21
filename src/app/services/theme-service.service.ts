@@ -10,9 +10,10 @@ export class ThemeServiceService {
 
   theme : boolean = false;
 
-  getTheme(){
-    this.theme = this.theme;
-  }
+  /**
+   *This function can be called to update local theme with the global theme
+   * @param newTheme takes an input update for local component from the global darkThemeService
+   */
 
   setTheme(newTheme : boolean){
     this.theme = newTheme;
