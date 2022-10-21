@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { LoginComponent } from './login.component';
 
 describe('LoginComponent', () => {
@@ -13,12 +13,12 @@ describe('LoginComponent', () => {
         HttpClientTestingModule,
       ],
       providers: [
-        HttpClientTestingModule ,
+        HttpClientTestingModule,
       ],
-      
-      declarations: [ LoginComponent ]
+
+      declarations: [LoginComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
