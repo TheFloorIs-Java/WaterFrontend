@@ -1,8 +1,11 @@
 <div class="navbar-container">
 
-  <nav [ngClass]=" this.darktheme=== true ? 'navbar-dark navbar0': 'navbar-light navbar0' ">
+  <nav [ngClass]=" this.darktheme === false ? 'navbar-dark navbar0': 'navbar-light navbar0' ">
     <h4 class="logo">
-      <img src="../../../assets/images/whale-light.png" width="6%" height="6%" alt="Whale">
+      <img [ngClass]=" darktheme === true ? '' : 'hide' " src="../../../assets/images/whale-dark.png" width="6%"
+        height="6%" alt="Whale">
+      <img [ngClass]=" darktheme === true ? 'hide' : '' " src="../../../assets/images/whale-light.png" width="6%"
+        height="6%" alt="Whale">
       Katara's Fanclub
     </h4>
     <form class="form-inline right-items">

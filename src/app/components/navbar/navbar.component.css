@@ -59,31 +59,16 @@
     justify-content: space-between;
     padding: 0.5rem 2.5rem;
     width:100vw;
-    background-color:rgb(150,65,255);
-    color: #000;
+    background-color: #1a1a1aab;
+    color: #f1f1f1;
+    backdrop-filter: blur(50px);
 }
 
 .navbar-container {
     display: grid;
 }
 
-body.dark-mode .navbar0.nav{
-  z-index:10;
-  margin-top:-5px;
-  position: relative;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding: 0.5rem 2.5rem;
-  width:100vw;
-  background-color:rgb(150,65,255);
-  color: #000;
-}
+
 
 .light-switch-light {
 
