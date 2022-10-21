@@ -1,5 +1,5 @@
-<div class="card" style="width: 18rem;" >
-  <img class="card-img-top" [src]="productInfo.image" alt="Card image cap" (click)="getProductDetails()">
+<div *ngIf="{productInfo}" class="card" style="width: 18rem;" >
+  <img   class="card-img-top" [src]="productInfo.image" alt="Card image cap" (click)="getProductDetails()">
   <div class="card-body">
     <h5 class="card-title">{{productInfo.name}}</h5>
     <p class="card-text">{{productInfo.description}}</p>
@@ -15,7 +15,7 @@
     <div class="input-group-prepend">
       <span class="input-group-text" id="inputGroup-sizing-sm">Quantity in Stock</span>
     </div>
-    <input type="number" class="form-control" aria-label="Sizing example input" [value]="productInfo.quantity"
+    <input  type="number" class="form-control" aria-label="Sizing example input" [value]="productInfo.quantity"
       aria-describedby="inputGroup-sizing-sm" disabled>
   </div>
   <div class="card-body">
