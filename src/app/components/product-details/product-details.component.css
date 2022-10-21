@@ -1,7 +1,9 @@
 .card {
+    margin: 0 auto; /* Centers the card on the page*/
     size: auto;
     min-width: 275px;
     max-width: 200px;
+    width: max-content;
     height: fit-content;
     transition: .2s ease-out;
     border-style: solid;
@@ -32,10 +34,10 @@
     transition: .2s ease-out;
   }
   
-  .card:hover{
+  /* .card:hover{
     box-shadow: 0 5px 10px rgba(0,0,0,.2);
     transform: translate3d(0,-10px,0);
-  }
+  } */
 
 
 
@@ -65,7 +67,7 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 140px;
+  width: 180px;
   will-change: transform;
 }
 

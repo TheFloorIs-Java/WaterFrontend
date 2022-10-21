@@ -16,7 +16,7 @@ export class ProductDetailsComponent implements OnInit {
 
   // For products details
   id: number = 0;
-  starRating: number = 0;
+  starRating: number = 4;
 
   product: Product = {
     id: 0, 
