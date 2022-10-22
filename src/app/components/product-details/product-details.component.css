@@ -20,7 +20,7 @@
     size: auto;
     min-width: 275px;
     max-width: 200px;
-    width: max-content;
+    min-height: 591.66px;
     height: fit-content;
     transition: .2s ease-out;
     border: 2px solid #4f4f4f;
