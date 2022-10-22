@@ -28,8 +28,8 @@
   <div class="card-body">
     <button [ngClass]=" this.themeService.getTheme() === true ? 'button-28-dark button-28': 'button-28' "
       (click)="addToCart(product)">Add to Cart</button>
-    <button [ngClass]=" this.themeService.getTheme() === true ? 'button-28-dark button-28': 'button-28' "
-      (click)="addToCart(product)">Add to Wishlist</button>
+    <button [ngClass]=" this.themeService.getTheme() === true ? 'button-28-dark button-28': 'button-28' ">
+      Add to Wishlist</button>
   </div>
 </div>
 
