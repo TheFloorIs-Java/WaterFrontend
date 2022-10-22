@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProductService } from 'src/app/services/product.service';
 import { DarkModeService } from 'angular-dark-mode';
@@ -18,7 +18,7 @@ export class NavbarComponent implements OnInit{
   /**
    * creating a variable that will store the state of the darkMode through the service
    */
-  darkMode$ = this.darkModeService.darkMode$;
+
   cartCount!: number;
   subscription!: Subscription;
 
@@ -36,7 +36,9 @@ export class NavbarComponent implements OnInit{
     );
   }
 
-  darktheme : boolean = false;
+  darktheme : boolean = this.themeService.getTheme();
+
+
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
@@ -56,11 +58,10 @@ export class NavbarComponent implements OnInit{
    *  */
 
   toggled(){
-    this.themeService.theme = !this.themeService.theme;
+    this.themeService.setTheme(!this.themeService.getTheme());
     this.darkModeService.toggle();
-    this.darktheme = this.themeService.theme;
+    this.darktheme = this.themeService.getTheme();
 
-    console.log(this.themeService.theme);
 
   }
 
@@ -70,7 +71,8 @@ export class NavbarComponent implements OnInit{
    */
 
   checkTheme(){
-    this.darktheme = this.themeService.theme;
+    this.darktheme = this.themeService.getTheme();
+
   }
 
 
