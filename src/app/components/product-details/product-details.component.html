@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<div class="card" style="width: 18rem;">
+<div [ngClass]=" this.themeService.theme === false ? 'card-dark card': 'card' " style="width: 18rem;">
   <img class="card-img-top" [src]="product.image" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">{{product.name}}</h5>

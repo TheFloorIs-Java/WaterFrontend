@@ -8,15 +8,12 @@ describe('ProductCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-
       imports: [
         HttpClientTestingModule,
       ],
       providers: [
         HttpClientTestingModule,
       ],
-
-
       declarations: [ProductCardComponent]
     })
       .compileComponents();
