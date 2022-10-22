@@ -73,7 +73,7 @@
 .light-switch-light {
 
     margin-left: 88vw;
-    background-color: rgb(230, 230, 230);
+    background-color:#03dac5;
     width: 48px;
     height: 80px;
     border-bottom-left-radius: 5px;
@@ -82,7 +82,7 @@
 .light-switch-dark {
 
   margin-left: 88vw;
-  background-color:#03dac5;
+  background-color: rgb(230, 230, 230);
   width: 48px;
   height: 80px;
   border-bottom-left-radius: 5px;

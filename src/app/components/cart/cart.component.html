@@ -1,30 +1,32 @@
 <app-navbar></app-navbar>
-<table class="table table-striped" id="cart-table">
-    <thead>
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Name</th>         
-         <th scope="col">Quantity</th>   
-        <th scope="col">Description</th>
-        
-      </tr>
-    </thead>
-    <tbody id="cart-table-body">
-        <tr *ngFor="let product of products;">
-            <td>{{product.product.id}}</td>
-            <td>{{product.product.name}}</td>
-      <div class="quantityBTN">
-             <button (click)="incrimentButton(product)"><i class="fas fa-plus"></i></button>  
-            <td>{{product.quantity}}</td>
-             <button (click)="decrimentButton(product)"><i class="fas fa-minus"></i></button> 
+<table [ngClass]=" darktheme === true ? 'table table-striped table-darkmode' : 'table table-striped' " id="cart-table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Description</th>
+
+    </tr>
+  </thead>
+  <tbody [ngClass]=" darktheme === true ? 'row-dark' : '' " id="cart-table-body">
+    <tr *ngFor="let product of products;">
+      <td [ngClass]=" darktheme === true ? 'row-dark' : '' " >{{product.product.id}}</td>
+      <td [ngClass]=" darktheme === true ? 'row-dark' : '' " >{{product.product.name}}</td>
+      <td [ngClass]=" darktheme === true ? 'row-dark' : '' " >
+        <div class="quantityBTN">
+      <td [ngClass]=" darktheme === true ? 'row-dark' : '' " ><button (click)="incrimentButton(product)"><i class="fas fa-plus"></i></button></td>
+      <td [ngClass]=" darktheme === true ? 'row-dark' : '' " >{{product.quantity}}</td>
+      <td [ngClass]=" darktheme === true ? 'row-dark' : '' " ><button (click)="decrimentButton(product)"><i class="fas fa-minus"></i></button></td>
       </div>
-        <th scope="col">Action</th>
-            <td>{{product.product.description}}</td>
-            <td>
-              <button (click)="deleteItemFromCart(product)"><i class="fa-solid fa-trash-can"></i></button>
-            </td>
-        </tr>
-    </tbody>
+      </td>
+      <!-- <th scope="col">Action</th> -->
+      <td [ngClass]=" darktheme === true ? 'row-dark' : '' " >{{product.product.description}}</td>
+      <td [ngClass]=" darktheme === true ? 'row-dark' : '' " >
+        <button (click)="deleteItemFromCart(product)"><i class="fa-solid fa-trash-can"></i></button>
+      </td>
+    </tr>
+  </tbody>
 </table>
 <button class="btn btn-danger" [routerLink]="['/home']">Back</button>
 <button class="btn btn-warning" (click)="emptyCart()">Empty Cart</button>

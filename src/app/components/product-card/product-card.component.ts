@@ -39,10 +39,10 @@ export class ProductCardComponent implements OnInit{
     );
   }
 
- darktheme : boolean = false;
+ darktheme = this.themeService.getTheme();
 
   checkTheme(){
-    this.darktheme = this.themeService.theme;
+    this.darktheme = this.themeService.getTheme();
   }
 
   addToCart(product: Product): void {

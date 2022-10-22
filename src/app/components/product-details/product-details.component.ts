@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
+import { ThemeServiceService } from 'src/app/services/theme-service.service';
 
 
 @Component({
@@ -19,11 +20,11 @@ export class ProductDetailsComponent implements OnInit {
   starRating: number = 4;
 
   product: Product = {
-    id: 0, 
-    name: "", 
-    quantity: 0, 
-    description: "", 
-    price: 0, 
+    id: 0,
+    name: "",
+    quantity: 0,
+    price: 0,
+    description: "",
     image: ""
   };
 
@@ -37,8 +38,10 @@ export class ProductDetailsComponent implements OnInit {
   }[] = [];
 
 
-  
-  constructor(private productService: ProductService, private router: Router ) {
+
+  constructor(private productService: ProductService,
+     private router: Router,
+     public themeService : ThemeServiceService ) {
   }
 
   ngOnInit(): void {
@@ -49,7 +52,7 @@ export class ProductDetailsComponent implements OnInit {
       this.product = JSON.parse(sessionStorage.getItem('currentProduct')!);
     } else {
       this.productService.getSingleProduct(this.id).subscribe(
-        res => { 
+        res => {
           sessionStorage.setItem('currentProduct', JSON.stringify(res));
           this.product = res;
         }
@@ -65,6 +68,13 @@ export class ProductDetailsComponent implements OnInit {
       }
     );
   }
+
+  darktheme = this.themeService.getTheme();
+
+  checkTheme(){
+    this.darktheme = this.themeService.getTheme();
+  }
+
 
   addToCart(product: Product): void {
     let inCart = false;
@@ -97,7 +107,7 @@ export class ProductDetailsComponent implements OnInit {
         totalPrice: this.totalPrice + product.price
       }
       this.productService.setCart(cart);
-    }  
+    }
   }
 
   ngOnDestroy() {
