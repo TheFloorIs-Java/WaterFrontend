@@ -21,9 +21,11 @@
     min-width: 275px;
     max-width: 200px;
     min-height: 591.66px;
+    width: max-content;
     height: fit-content;
     transition: .2s ease-out;
     border: 2px solid #4f4f4f;
+    border-width: 1.2px;
     padding: 20px;
     background-color: #4f4f4f;
     box-shadow: 0 5px 10px rgba(0,0,0,.5);
