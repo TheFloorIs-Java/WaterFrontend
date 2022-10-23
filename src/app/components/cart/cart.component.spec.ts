@@ -17,7 +17,8 @@ describe('CartComponent', () => {
       declarations: [CartComponent]
     })
       .compileComponents();
-  });
+  
+  
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CartComponent);
