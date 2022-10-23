@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<div class="card" style="width: 18rem;">
+<div [ngClass]=" this.themeService.getTheme() === true ? 'card-dark card': 'card' " style="width: 18rem;">
   <img class="card-img-top" [src]="product.image" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">{{product.name}}</h5>
@@ -7,32 +7,43 @@
   </div>
   <div class="input-group input-group-sm mb-3">
     <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-sm">$</span>
+      <span
+        [ngClass]=" this.themeService.getTheme() === true ? 'input-group-text input-group-text-dark': 'input-group-text' "
+        id="inputGroup-sizing-sm">$</span>
     </div>
-    <input type="number" class="form-control" aria-label="Sizing example input" [value]="product.price"
-      aria-describedby="inputGroup-sizing-sm" disabled>
+    <input type="number"
+      [ngClass]=" this.themeService.getTheme() === true ? 'form-control form-control-dark': 'form-control' "
+      aria-label="Sizing example input" [value]="product.price" aria-describedby="inputGroup-sizing-sm" disabled>
   </div>
   <div class="input-group input-group-sm mb-3">
     <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-sm">Quantity in Stock</span>
+      <span
+        [ngClass]=" this.themeService.getTheme() === true ? 'input-group-text input-group-text-dark': 'input-group-text' "
+        id="inputGroup-sizing-sm">Quantity in Stock</span>
     </div>
-    <input type="number" class="form-control" aria-label="Sizing example input" [value]="product.quantity"
-      aria-describedby="inputGroup-sizing-sm" disabled>
+    <input type="number"
+      [ngClass]=" this.themeService.getTheme() === true ? 'form-control form-control-dark': 'form-control' "
+      aria-label="Sizing example input" [value]="product.quantity" aria-describedby="inputGroup-sizing-sm" disabled>
   </div>
   <div class="card-body">
-    <button class="button-28" (click)="addToCart(product)">Add to Cart</button>
-    <button class="button-28" (click)="addToCart(product)">Add to Wishlist</button>
+    <button [ngClass]=" this.themeService.getTheme() === true ? 'button-28-dark button-28': 'button-28' "
+      (click)="addToCart(product)">Add to Cart</button>
+    <button [ngClass]=" this.themeService.getTheme() === true ? 'button-28-dark button-28': 'button-28' ">
+      Add to Wishlist</button>
   </div>
 </div>
 
-<!-- User Rating -->
-<div>
-  <h2>User Rating:</h2>
-  <ngb-rating [max]="5" [(rate)]="starRating" [readonly]="false"></ngb-rating>
-</div>
 
-<!-- User Reviews -->
-<div>
-  <h2>User Reviews</h2>
+<div class="review-wrapper">
+  <!-- User Rating -->
+  <div class="row">
+    <h2>User Rating:</h2>
+    <ngb-rating [max]="5" [(rate)]="starRating" [readonly]="false"></ngb-rating>
+  </div>
 
+  <!-- User Reviews -->
+  <div  class="row">
+    <h2>User Reviews</h2>
+
+  </div>
 </div>

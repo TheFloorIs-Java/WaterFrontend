@@ -8,7 +8,6 @@ describe('ProductCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-
       imports: [
         HttpClientTestingModule,
       ],

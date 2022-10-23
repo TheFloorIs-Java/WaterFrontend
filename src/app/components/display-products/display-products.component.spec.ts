@@ -8,7 +8,6 @@ describe('DisplayProductsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-
       imports: [
         HttpClientTestingModule,
       ],

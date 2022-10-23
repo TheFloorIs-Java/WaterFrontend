@@ -1,6 +1,6 @@
 import { Product } from 'src/app/models/product';
 import { HttpClient } from '@angular/common/http';
-
+import { ThemeServiceService } from 'src/app/services/theme-service.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -18,17 +18,21 @@ export class CartComponent implements OnInit {
     quantity: number,
   }[] = [];
   /**
-   * there was ! sign on total price 
+   * there was ! sign on total price
    */
   totalPrice!: number;
   cartProducts: Product[] = [];
   cartCount!: number;
 
-  constructor(private productService: ProductService, private http: HttpClient, private router: Router) {
+  constructor(private productService: ProductService,
+     private http: HttpClient,
+      private router: Router,
+      private themeService : ThemeServiceService) {
 
   }
 
   ngOnInit(): void {
+    this.checkTheme();
     this.productService.getCart().subscribe(
       (cart) => {
         this.cartCount = cart.cartCount;
@@ -42,6 +46,14 @@ export class CartComponent implements OnInit {
     );
 
   }
+  darktheme : boolean = this.themeService.getTheme();
+
+  checkTheme(){
+    this.darktheme = this.themeService.getTheme();
+    console.log(this.darktheme);
+    console.log(this.themeService.getTheme());
+  }
+
 
 
   emptyCart(): void {
@@ -109,7 +121,7 @@ export class CartComponent implements OnInit {
 incrimentButton(productArray: any){
   if (productArray.quantity + 1 <= productArray.product.quantity) {
     productArray.quantity = productArray.quantity + 1;
-  this.updateCart(productArray, true);  
+  this.updateCart(productArray, true);
     //  this.productService.incrimentButton(Product.quantity)
   }
 }
