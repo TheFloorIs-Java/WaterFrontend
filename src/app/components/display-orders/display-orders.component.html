@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div>
+       <div *ngFor="let group of groupedOrders">
+            <div class="group">
+                <div class="header">
+                    <div class="row">
+                        <div>
+                            <p class="title">ORDER PLACED</p>
+                            <p>{{group.date}}</p>
+                        </div>
+
+                        <div>
+                            <p class="title">TOTAL</p>
+                            <p>${{group.totalPrice}}</p>
+                        </div>
+
+                        <div style="position: absolute; right: 0; padding-right: 25px">
+                            <p class="title">ORDER NUMBER</p>
+                            <p style="position: absolute; right: 25px;">{{group.id}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngFor="let order of group.orders">
+                    <app-order-card
+                        class="cardListItem"
+                        [orderInfo]="order"
+                    ></app-order-card> 
+                </div>
+
+                <div class="header">
+                    <a>View order details</a>
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>
+
+<div *ngIf="empty" class="empty"> You haven't placed any orders </div>

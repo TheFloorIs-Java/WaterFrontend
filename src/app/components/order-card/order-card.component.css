@@ -1,0 +1,61 @@
+.card {
+  size: auto;
+  height: fit-content;
+  width: fit-content;
+  min-height: 100px;
+  border-top: none;
+  border-radius: 0;
+}
+  
+img {
+  width: 100%;
+  height: 120px;
+}
+
+.row {
+  width: 100%;
+  height: 100%;
+}
+
+.left {
+  width: 20%;
+  height: 100%;
+}
+
+.right {
+  width: 80%;
+}
+
+a {
+  padding-top: 10px;
+  font-size: 20px;
+}
+
+p {
+  font-size: 17px;
+  padding-bottom: 7px;
+}
+
+.date {
+  position: absolute;
+  bottom: 0;
+}
+
+.card-text {
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 3em;
+  line-height: 1em;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.card-title {
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0;
+}
