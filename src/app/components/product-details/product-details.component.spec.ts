@@ -57,7 +57,6 @@ describe('ProductDetailsComponent', () => {
     testProduct.subscribe(
       res => expect(res).toEqual(product) 
     );
-
   });
 });
 
