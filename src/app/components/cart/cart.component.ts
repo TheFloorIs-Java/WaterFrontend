@@ -27,12 +27,13 @@ export class CartComponent implements OnInit {
   constructor(private productService: ProductService,
      private http: HttpClient,
       private router: Router,
-      private themeService : ThemeServiceService) {
+      public themeService : ThemeServiceService) {
 
   }
 
   ngOnInit(): void {
     this.checkTheme();
+    console.log(this.darktheme);
     this.productService.getCart().subscribe(
       (cart) => {
         this.cartCount = cart.cartCount;
@@ -46,12 +47,12 @@ export class CartComponent implements OnInit {
     );
 
   }
+
   darktheme : boolean = this.themeService.getTheme();
 
   checkTheme(){
     this.darktheme = this.themeService.getTheme();
     console.log(this.darktheme);
-    console.log(this.themeService.getTheme());
   }
 
 

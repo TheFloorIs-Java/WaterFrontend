@@ -13,4 +13,11 @@ describe('ThemeServiceService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should test setter', () => {
+    service.setTheme(true);
+    expect(service.getTheme()).toBe(true);
+    service.setTheme(false);
+    expect(service.getTheme()).toBe(false);
+  });
 });

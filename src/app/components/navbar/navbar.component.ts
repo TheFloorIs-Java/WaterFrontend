@@ -61,6 +61,7 @@ export class NavbarComponent implements OnInit{
     this.themeService.setTheme(!this.themeService.getTheme());
     this.darkModeService.toggle();
     this.darktheme = this.themeService.getTheme();
+    console.log(this.darktheme);
 
 
   }

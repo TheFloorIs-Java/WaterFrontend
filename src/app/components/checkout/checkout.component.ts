@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { ThemeServiceService } from 'src/app/services/theme-service.service';
 
 @Component({
   selector: 'app-checkout',
@@ -17,7 +18,7 @@ export class CheckoutComponent implements OnInit {
   }[] = [];
   totalPrice!: number;
   cartProducts: Product[] = [];
-  finalProducts: {id: number, quantity: number}[] = []; 
+  finalProducts: {id: number, quantity: number}[] = [];
 
   checkoutForm = new UntypedFormGroup({
     fname: new UntypedFormControl('', Validators.required),
@@ -32,9 +33,12 @@ export class CheckoutComponent implements OnInit {
     country: new UntypedFormControl('', Validators.required)
   });
 
-  constructor(private productService: ProductService, private router: Router) { }
+  constructor(private productService: ProductService,
+     private router: Router,
+     public themeService : ThemeServiceService) { }
 
   ngOnInit(): void {
+    this.checkTheme();
     this.productService.getCart().subscribe(
       (cart) => {
         this.products = cart.products;
@@ -46,13 +50,21 @@ export class CheckoutComponent implements OnInit {
     );
   }
 
+  darktheme : boolean = this.themeService.getTheme();
+
+  checkTheme(){
+    this.darktheme = this.themeService.getTheme();
+    console.log(this.darktheme);
+  }
+
+
   onSubmit(): void {
     this.products.forEach(
       (element) => {
         const id = element.product.id;
         const quantity = element.quantity
         this.finalProducts.push({id, quantity})
-      } 
+      }
     );
 
     if(this.finalProducts.length > 0) {
@@ -67,7 +79,7 @@ export class CheckoutComponent implements OnInit {
           };
           this.productService.setCart(cart);
           this.router.navigate(['/home']);
-        } 
+        }
       );
 
     } else {

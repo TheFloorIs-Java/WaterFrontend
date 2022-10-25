@@ -1,19 +1,20 @@
 <div class="navbar-container">
 
-  <nav [ngClass]=" this.darktheme === true ? 'navbar-dark navbar0': 'navbar-light navbar0' ">
-    <h4 class="logo">
+  <nav [ngClass]=" darktheme === true ? 'navbar-dark navbar0': 'navbar-light navbar0' ">
+    <h4 class="logo" [routerLink]="['/home']">
       <img [ngClass]=" darktheme === true ? '' : 'hide' " src="../../../assets/images/whale-light.png" width="6%"
         height="6%" alt="Whale">
       <img [ngClass]=" darktheme === true ? 'hide' : '' " src="../../../assets/images/whale-dark.png" width="6%"
-        height="6%" alt="Whale">
+        height="6%" alt="Whale" >
       Katara's Fanclub
     </h4>
     <form class="form-inline right-items">
-      <button class="btn btn-light" [routerLink]="['/cart']">
+      <button class="btn btn-light btn-cart" [routerLink]="['/cart']">
         <i class="fa-solid fa-cart-shopping"></i>
         <span class="badge badge-info">{{cartCount}}</span>
       </button>
-      <button class="btn btn-outline-danger my-2 my-sm-0" (click)="logout();">Logout</button>
+      <button [ngClass]=" darktheme === true ? 'button-50 button-50-dark' : 'button-50' " role="button" (click)="logout();" >Logout</button>
+      <!-- <button class="btn btn-outline-danger my-2 my-sm-0 logout" (click)="logout();">Logout</button> -->
     </form>
   </nav>
 
