@@ -1,3 +1,4 @@
+import { DisplayOrderDetailsComponent } from './components/display-order-details/display-order-details.component';
 import { DisplayOrdersComponent } from './components/display-orders/display-orders.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: "home", component: DisplayProductsComponent },
   { path: "cart", component: CartComponent },
   { path: "checkout", component: CheckoutComponent },
-  { path: "orders", component: DisplayOrdersComponent}
+  { path: "orders", component: DisplayOrdersComponent},
+  { path: "order-details", component: DisplayOrderDetailsComponent}
 ];
 
 @NgModule({

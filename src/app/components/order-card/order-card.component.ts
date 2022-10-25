@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Order } from 'src/app/models/order';
 
 @Component({
   selector: 'app-order-card',
@@ -8,7 +7,7 @@ import { Order } from 'src/app/models/order';
 })
 export class OrderCardComponent implements OnInit {
   @Input()
-  orderInfo! : Order;
+  orderItem! : any;
 
   constructor() {
 

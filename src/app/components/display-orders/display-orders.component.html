@@ -1,36 +1,37 @@
 <app-navbar></app-navbar>
 <div class="container">
     <div>
-       <div *ngFor="let group of groupedOrders">
+        <p style="position: relative; left: 55px; font-size: 30px;"> Order History </p>
+
+        <br>
+
+       <div *ngFor="let order of orderService.orders">
             <div class="group">
                 <div class="header">
                     <div class="row">
-                        <div>
+                        <div class="contents">
                             <p class="title">ORDER PLACED</p>
-                            <p>{{group.date}}</p>
+                            <p>{{formattedDate(order.date)}}</p>
                         </div>
 
-                        <div>
+                        <div class="contents">
                             <p class="title">TOTAL</p>
-                            <p>${{group.totalPrice}}</p>
+                            <p>${{order.totalCost}}</p>
                         </div>
 
-                        <div style="position: absolute; right: 0; padding-right: 25px">
+                        <div class="contents" style="position: absolute; right: 0; padding-right: 15px">
                             <p class="title">ORDER NUMBER</p>
-                            <p style="position: absolute; right: 25px;">{{group.id}}</p>
+                            <p style="position: relative; text-align: right;">{{order.id}}</p>
                         </div>
                     </div>
                 </div>
 
-                <div *ngFor="let order of group.orders">
-                    <app-order-card
-                        class="cardListItem"
-                        [orderInfo]="order"
-                    ></app-order-card> 
+                <div *ngFor="let item of order.items">
+                    <app-order-card class="cardListItem" [orderItem]="item"></app-order-card> 
                 </div>
 
                 <div class="header">
-                    <a>View order details</a>
+                    <a [routerLink]="['/order-details']" [queryParams]="{id: order.id}">View order details</a>
                 </div>
             </div>
         </div> 
@@ -38,3 +39,7 @@
 </div>
 
 <div *ngIf="empty" class="empty"> You haven't placed any orders </div>
+
+<br>
+<br>
+<br>
