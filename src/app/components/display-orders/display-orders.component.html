@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div>
+        <p style="position: relative; left: 55px; font-size: 30px;"> Order History </p>
+
+        <br>
+
+       <div *ngFor="let order of orderService.orders">
+            <div class="group">
+                <div class="header">
+                    <div class="row">
+                        <div class="contents">
+                            <p class="title">ORDER PLACED</p>
+                            <p>{{formattedDate(order.date)}}</p>
+                        </div>
+
+                        <div class="contents">
+                            <p class="title">TOTAL</p>
+                            <p>${{order.totalCost}}</p>
+                        </div>
+
+                        <div class="contents" style="position: absolute; right: 0; padding-right: 15px">
+                            <p class="title">ORDER NUMBER</p>
+                            <p style="position: relative; text-align: right;">{{order.id}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngFor="let item of order.items">
+                    <app-order-card class="cardListItem" [orderItem]="item"></app-order-card> 
+                </div>
+
+                <div class="header">
+                    <a [routerLink]="['/order-details']" [queryParams]="{id: order.id}">View order details</a>
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>
+
+<div *ngIf="empty" class="empty"> You haven't placed any orders </div>
+
+<br>
+<br>
+<br>

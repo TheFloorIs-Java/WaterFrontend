@@ -1,0 +1,14 @@
+<div class="card" style="width: 100%;">
+  <div class="my-row">
+    <div class="left">
+      <img [src]="orderItem.productImage">
+  </div>
+  
+  <div class="right">
+      <a class="card-title">{{orderItem.productName}}</a>
+      <p class="card-text">{{orderItem.productDescription}}</p>
+      <p class="card-text" style="color: rgb(183, 79, 67);">${{orderItem.productPrice}}</p>
+      <p>Quantity: {{orderItem.productQuantity}}</p>
+  </div>
+  </div>
+</div>

@@ -1,0 +1,83 @@
+/* Item sizing */
+.cardListItem {
+    flex: 0 0 307px;
+    padding-bottom: 6%;
+    max-width: 400px;
+    /* margin-left: 6%; */
+}
+    
+  
+/* small size viewport */
+@media screen and (max-width: 640px) {
+    /* Item sizing */
+    .cardListItem {
+        flex: 0 0 307px;
+        margin-left: 4%;
+        padding-left: 3%;
+    }
+}
+/* medium size viewport */
+@media screen and (max-width: 959px) {
+    /* Item sizing */
+    .cardListItem {
+        /* flex: 0 0 307px; */
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
+    
+@supports (display: grid) {
+    .product-cards { 
+        max-width: 10000px;
+        margin: 0; 
+        padding: 3%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        column-gap: 60px;
+    }
+}
+
+.container 
+{
+  margin-top: 1%;
+}
+
+.col-4
+{
+  margin-bottom: 1%;
+}
+
+.empty {
+    font-size: 30px;
+    text-align: center;
+    transform: translateY(250%);
+}
+
+.group {
+    margin-bottom: 15px;
+    width: 1000px;
+    position: relative;
+    left: 55px;
+    outline-style: solid;
+    outline-width: 1px;
+    border-radius: 10px;
+    overflow: hidden; /* Instead of changing the header div's borders so that they match the group div's borders, this automatically handles it since header divs are within the group divs */
+}
+
+.header {
+    background-color: rgb(240, 242, 242);
+    padding: 15px;
+}
+
+div.contents {
+    margin: 0;
+    padding-left: 15px;
+}
+
+p {
+    margin: 0;
+}
+
+p.title {
+    color: rgb(136, 136, 142);
+}
