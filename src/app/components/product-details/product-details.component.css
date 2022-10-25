@@ -33,6 +33,16 @@
   }
 
   .card-body{
+    min-height: 135px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .card-body2{
+    margin-top:5px;
+    min-height: 145px;
     display: grid;
     justify-content: center;
     align-items: center;
@@ -78,7 +88,7 @@
   line-height: normal;
   margin: 0;
   min-height: 30px;
-  min-width: 0;
+  min-width: 170px;
   outline: none;
   padding: 16px 24px;
   text-align: center;
@@ -87,8 +97,13 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 180px;
+  width: 140px;
   will-change: transform;
+}
+
+.button-28-dark {
+  background-color: #3f3f3f;
+  color:#fff;
 }
 
 .button-28:disabled {
@@ -123,11 +138,7 @@
 }
 
 
-.button-28-dark {
-  background-color: #3f3f3f;
-  color:#fff;
-  margin-bottom: 10px;
-}
+
 
 .review-wrapper {
   display: grid;

@@ -2,13 +2,14 @@
     size: auto;
     min-width: 275px;
     max-width: 200px;
-    min-height: 515px;
+    min-height: 539px;
     height: fit-content;
     transition: .2s ease-out;
     border-style: solid;
-    border-color:rgb(171, 171, 171);
-    border-width: 1.7px;
+    border-color:rgb(218, 218, 218);
+    border-width: 2px;
     padding: 20px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.3);
 
   }
 
@@ -16,6 +17,7 @@
     size: auto;
     min-width: 275px;
     max-width: 200px;
+    min-height: 539px;
     height: fit-content;
     transition: .2s ease-out;
     border: 2px solid #4f4f4f;
@@ -28,6 +30,7 @@
 
 
   .card-body{
+
     display: grid;
     justify-content: center;
     align-items: center;
@@ -43,7 +46,7 @@
     max-width: 307px;
     left:0;
   }
-  
+
   div {
     position: relative;
     transition: .2s ease-out;

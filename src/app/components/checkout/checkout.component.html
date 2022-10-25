@@ -1,16 +1,16 @@
 <app-navbar></app-navbar>
 
-<div class="container mt-5 px-5">
+<div [ngClass]=" this.themeService.getTheme() === true ? 'container mt-5 px-5 container-dark' : 'container mt-5 px-5' " >
 
     <div class="mb-4">
 
         <h2>Confirm order and pay</h2>
-    <span>please make the payment, after that you can enjoy all the features and benefits.</span>
-        
+    <span [ngClass]=" this.themeService.getTheme() === true ? 'subheader-dark' : 'subheader' ">Please make the payment, after that you can enjoy all the features and benefits.</span>
+
     </div>
     <div class="row">
         <div class="col-md-8">
-            <div class="card p-3">
+            <div [ngClass]=" this.themeService.getTheme() === true ? 'card p-3' : 'card p-3 card-light' " >
 
                 <h6 class="text-uppercase">Payment details</h6>
                 <div class="inputbox mt-3"> <input type="text" name="name" class="form-control" required="required"> <span>Name on card</span> </div>
@@ -19,7 +19,7 @@
 
                     <div class="col-md-6">
 
-                        <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <i class="fa fa-credit-card"></i> <span>Card Number</span> 
+                        <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <i class="fa fa-credit-card"></i> <span>Card Number</span>
                         </div>
 
                     </div>
@@ -28,8 +28,8 @@
                             <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>Expiry</span> </div>
 
                         <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>CVV</span> </div>
-                        </div>                        
-                    </div>                   
+                        </div>
+                    </div>
                 </div>
 
                 <div class="mt-4 mb-4">
@@ -40,14 +40,14 @@
                         <div class="col-md-6">
 
                             <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>Street Address</span> </div>
-                            
+
                         </div>
 
 
                         <div class="col-md-6">
 
                             <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>City</span> </div>
-                            
+
                         </div>
                     </div>
 
@@ -55,23 +55,32 @@
 
                         <div class="col-md-6">
 
-                            <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>State/Province</span> </div>        
+                            <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>State/Province</span> </div>
 
                         </div>
                         <div class="col-md-6">
 
-                            <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>Zip code</span> </div>              
+                            <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>Zip code</span> </div>
 
-                        </div>                      
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="mt-4 mb-4 d-flex justify-content-between">
 
-                <button class="btn btn-danger" [routerLink]="['/cart']">Back to Cart</button>
 
-                <button class="btn btn-success px-3" (click)="onSubmit();">Pay ${{totalPrice}}</button>
+              <button class="back-button" [routerLink]="['/cart']">
+                <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024"><path d="M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z"></path></svg>
+                <span>Back to Cart</span>
+              </button>
+
+
+              <button (click)="onSubmit();" class="button-pay">
+                <span>Pay ${{totalPrice}}</span>
+              </button>
+
+
 
             </div>
 
@@ -79,9 +88,9 @@
 
         <div class="col-md-4">
 
-            <div class="card card-blue p-3 text-white mb-3">
+            <div [ngClass]=" this.themeService.getTheme() === true ? 'card p-3 text-white mb-3' : 'card card-light p-3 text-white mb-3' ">
 
-            <span>You have to pay</span>
+            <span [ngClass]=" this.themeService.getTheme() === true ? 'payment-span-dark' : 'payment-span' " class="payment-span">You have to pay</span>
                 <div class="d-flex flex-row align-items-end mb-3">
                     <h1 class="mb-0 yellow">${{totalPrice}}</h1>
                 </div>
@@ -89,13 +98,13 @@
                 <div class="hightlight">
 
                     <span>100% Guaranteed Satisfaction!</span>
-                    
+
 
                 </div>
-                
+
             </div>
-            
+
         </div>
-        
+
     </div>
 </div>

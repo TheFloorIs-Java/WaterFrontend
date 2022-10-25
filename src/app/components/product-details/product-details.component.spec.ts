@@ -41,6 +41,10 @@ describe('ProductDetailsComponent', () => {
     fixture.detectChanges();
   });
 
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
   it('should test that ngOninit initializes the product', () => {
     let product = new Product(0, "name", 0, "description", 0, "image");
     testProduct = of(product);
@@ -53,11 +57,6 @@ describe('ProductDetailsComponent', () => {
     testProduct.subscribe(
       res => expect(res).toEqual(product) 
     );
-
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
   });
 });
 

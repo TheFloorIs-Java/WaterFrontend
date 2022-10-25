@@ -1,27 +1,141 @@
-.table
-{
-    margin: 3%;
+.table {
+  margin-top: 40px;
+  background-color: #e4e4e4;
+  color: #111111;
+  width: 100vw;
+  border: 1px solid #434343;
+  border-bottom-color: #434343;
+}
+
+.table-title {
+  border-bottom: 3px solid #434343;
+}
+
+.table-title-dark {
+  border: 2px solid #525252;
+  border-bottom-color: #525252;
 }
 
 .table-darkmode {
-  background-color: #4F4F4F;
-  color:#c5c5c5;
-  width: 120vw;
-  margin-left: -40px;
+  margin-top: 40px;
+  background-color: #4f4f4f;
+  color: #c5c5c5;
+  width: 100vw;
   border: 2px solid #525252;
-  border-bottom: #525252;
-
+  border-bottom-color: #525252;
 }
 
 .row-dark {
-  background-color:#8f8f8f;
+  border-top: none;
+  color: #c5c5c5;
+  background-color: #333333;
+}
+
+.row-light {
+  background-color: #e4e4e4;
+  color: #111111;
   border-top: none;
 }
 
-.btn
-{
-    margin-left: 2%;
+.btn {
+  margin-left: 2%;
 }
-.quantityBTN{
-    display: flex;
+.quantityBTN {
+  display: flex;
+}
+
+.buttons {
+  margin-top:30px;
+  display: flex;
+  margin-left: 30px;
+  column-gap: 8px;
+}
+
+.back-button {
+  display: flex;
+  height: 3em;
+  width: 100px;
+  align-items: center;
+  justify-content: center;
+  background-color: #e1e1e14b;
+  border-radius: 3px;
+  letter-spacing: 1px;
+  transition: all 0.2s linear;
+  cursor: pointer;
+  border: none;
+  background: rgb(234, 234, 234);
+}
+
+.back-button > svg {
+  margin-right: 5px;
+  margin-left: 5px;
+  font-size: 13px;
+  transition: all 0.4s ease-in;
+}
+
+.back-button:hover > svg {
+  font-size: 1.2em;
+  transform: translateX(-5px);
+}
+
+.back-button:hover {
+  box-shadow: rgba(202, 202, 202, 0.25) 0 8px 15px;
+  transform: translateY(-1px);
+}
+
+/* From uiverse.io by @nikk7007 */
+.button {
+  --color: rgb(255, 92, 92);
+  padding: 0.8em 1.7em;
+  background-color: transparent;
+  border-radius: 0.3em;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.5s;
+  font-weight: 400;
+  font-size: 13px;
+  border: 1px solid;
+  font-family: inherit;
+  text-transform: uppercase;
+  color: var(--color);
+  z-index: 1;
+}
+
+.button::before,
+.button::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 50px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+  background-color: var(--color);
+  transition: 1s ease;
+}
+
+.button::before {
+  top: -1em;
+  left: -1em;
+}
+
+.button::after {
+  left: calc(100% + 1em);
+  top: calc(100% + 1em);
+}
+
+.button:hover::before,
+.button:hover::after {
+  height: 410px;
+  width: 410px;
+}
+
+.button:hover {
+  color: rgb(10, 25, 30);
+}
+
+.button:active {
+  filter: brightness(0.8);
 }
