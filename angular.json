@@ -90,6 +90,8 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "codeCoverage": true,
+
+            
             "assets": [
               "src/favicon.ico",
               "src/assets"
