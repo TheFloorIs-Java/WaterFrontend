@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CheckoutComponent } from './checkout.component';
 
 describe('CheckoutComponent', () => {
@@ -8,9 +8,15 @@ describe('CheckoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CheckoutComponent ]
+      imports: [
+        HttpClientTestingModule,
+      ],
+      providers: [
+        HttpClientTestingModule,
+      ],
+      declarations: [CheckoutComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

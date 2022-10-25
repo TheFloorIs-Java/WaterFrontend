@@ -4,6 +4,7 @@ import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { OrderService } from 'src/app/services/order.service';
+import { ThemeServiceService } from 'src/app/services/theme-service.service';
 
 @Component({
   selector: 'app-checkout',
@@ -40,9 +41,13 @@ export class CheckoutComponent implements OnInit {
     country: new UntypedFormControl('', Validators.required)
   });
 
-  constructor(private orderService : OrderService, private productService: ProductService, private router: Router) { }
+  constructor(private orderService : OrderService,
+    private productService: ProductService,
+    private router: Router,
+    public themeService : ThemeServiceService) { }
 
   ngOnInit(): void {
+    this.checkTheme();
     this.productService.getCart().subscribe(
       (cart) => {
         this.products = cart.products;
@@ -53,6 +58,14 @@ export class CheckoutComponent implements OnInit {
       }
     );
   }
+
+  darktheme : boolean = this.themeService.getTheme();
+
+  checkTheme(){
+    this.darktheme = this.themeService.getTheme();
+    console.log(this.darktheme);
+  }
+
 
   onSubmit(): void {
     let order = {
@@ -107,7 +120,7 @@ export class CheckoutComponent implements OnInit {
           };
           this.productService.setCart(cart);
           this.router.navigate(['/home']);
-        } 
+        }
       );
 
     } else {

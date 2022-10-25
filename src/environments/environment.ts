@@ -5,16 +5,18 @@
 export const environment = {
   production: false,
   withCredentials: true,
-  baseUrl: "http://localhost:8080",
+  // baseUrl: "http://localhost:8080",
+  baseUrl: "https://teamwater.azurewebsites.net",
   headers: {
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': 'http://localhost:4200',
+    'Access-Control-Allow-Origin': 'http://localhost:4200/',
   },
 };
 
 
 
 /*
+ * http://localhost:8080
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
  *

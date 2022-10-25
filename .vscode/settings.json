@@ -1,0 +1,8 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/a534a566-1564-4089-b3ca-b0aa14333fc2/AppServices/subscriptions/a534a566-1564-4089-b3ca-b0aa14333fc2/resourceGroups/Project3/providers/Microsoft.Web/sites/TeamWater",
+    "appService.deploySubpath": "dist\\e-commerce",
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ]
+}

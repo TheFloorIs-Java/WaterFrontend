@@ -1,3 +1,14 @@
+// export const environment = {
+//   production: true
+// };
+
+
 export const environment = {
-  production: true
+  production: false,
+  withCredentials: true,
+  baseUrl: "https://teamwater.azurewebsites.net",
+  headers: {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': 'https://teamwaterfrontend.azurewebsites.net',
+  },
 };

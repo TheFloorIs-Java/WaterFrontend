@@ -1,11 +1,25 @@
 <app-navbar></app-navbar>
+
+
+
+<section id="home">
+
+    <div class="title-group">
+        <h1>Current Features</h1>
+    </div>
+
+</section>
+
+
 <div class="container">
     <div class="row align-items-start">
-       <div class="col" *ngFor="let product of allProducts">
-            <app-product-card
-                class="cardListItem"
-                [productInfo]="product"
-            ></app-product-card> 
-        </div> 
+        <div class="col" *ngFor="let product of allProducts">
+            <app-product-card class="cardListItem" [productInfo]="product"></app-product-card>
+        </div>
     </div>
 </div>
+
+
+
+
+

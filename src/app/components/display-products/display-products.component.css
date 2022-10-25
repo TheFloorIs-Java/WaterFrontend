@@ -1,48 +1,80 @@
 /* Item sizing */
 .cardListItem {
-    flex: 0 0 307px;
-    padding-bottom: 6%;
-    max-width: 400px;
-    /* margin-left: 6%; */
-  }
-    
-  
-    /* small size viewport */
-  @media screen and (max-width: 640px) {
-    /* Item sizing */
-    .cardListItem {
-      flex: 0 0 307px;
-      margin-left: 4%;
-      padding-left: 3%;
-    }
-  }
-    /* medium size viewport */
-  @media screen and (max-width: 959px) {
-    /* Item sizing */
-    .cardListItem {
-      /* flex: 0 0 307px; */
-      margin-left: 5%;
-      margin-right: 5%;
-    }
-  }
-    
-  @supports (display: grid) {
-    .product-cards { 
-      max-width: 10000px;
-      margin: 0; 
-      padding: 3%;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      column-gap: 60px;
-    }
-  }
-
-.container 
-{
-  margin-top: 1%;
+  flex: 0 0 307px;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content:center ;
+  align-items: center;
+  padding-bottom: 6%;
+  max-width: 300px;
+  margin: 0;
+  /* margin-left: 6%; */
 }
 
-.col-4
-{
-  margin-bottom: 1%;
+/* small size viewport */
+@media screen and (max-width: 640px) {
+  /* Item sizing */
+  .cardListItem {
+    flex: 0 0 307px;
+    margin-left: 4%;
+    padding-left: 3%;
+  }
+}
+/* medium size viewport */
+@media screen and (max-width: 959px) {
+  /* Item sizing */
+  .cardListItem {
+    /* flex: 0 0 307px; */
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .col {
+    justify-content: center;
+    max-width: 538.99px;
+    margin-bottom: 4%;
+  }
+}
+
+@supports (display: grid) {
+  .product-cards {
+    max-width: 10000px;
+    margin: 0;
+    padding: 3%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    column-gap: 60px;
+  }
+}
+
+.container {
+  margin-top: 1%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+  margin-bottom: 3%;
+}
+
+.row {
+  display: flex;
+  row-gap: 15px;
+  justify-content: center;
+  align-items: start;
+  width:fit-content;
+}
+
+.col {
+  display: grid;
+  justify-content:center;
+
+}
+
+.title-group {
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
