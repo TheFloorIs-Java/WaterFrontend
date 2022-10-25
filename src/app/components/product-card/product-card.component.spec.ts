@@ -28,7 +28,7 @@ describe('ProductCardComponent', () => {
     quantity: 0, 
     price: 0, 
     description: "description", 
-    image: "image"
+    image: "image" 
     };
     fixture.detectChanges();
   });
@@ -36,4 +36,8 @@ describe('ProductCardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+
+
+ });
+
+

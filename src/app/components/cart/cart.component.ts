@@ -23,6 +23,8 @@ export class CartComponent implements OnInit {
   totalPrice!: number;
   cartProducts: Product[] = [];
   cartCount!: number;
+    
+   
 
   constructor(private productService: ProductService,
      private http: HttpClient,
