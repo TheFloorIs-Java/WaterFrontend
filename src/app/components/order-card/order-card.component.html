@@ -5,10 +5,10 @@
   </div>
   
   <div class="right">
-      <a class="card-title">{{orderItem.productName}}</a>
+      <a [routerLink]="productLink" class="card-title" (click)="getProductDetails()">{{orderItem.productName}}</a>
       <p class="card-text">{{orderItem.productDescription}}</p>
-      <p class="card-text" style="color: rgb(183, 79, 67);">${{orderItem.productPrice}}</p>
-      <p>Quantity: {{orderItem.productQuantity}}</p>
+      <p [ngClass]=" this.themeService.getTheme() === true ? 'cost-dark': 'cost' ">${{orderItem.productPrice}}</p>
+      <p>Qty: {{orderItem.productQuantity}}</p>
   </div>
   </div>
 </div>

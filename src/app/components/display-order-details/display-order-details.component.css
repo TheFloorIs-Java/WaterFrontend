@@ -47,18 +47,35 @@
   margin-bottom: 1%;
 }
 
+.empty {
+    font-size: 30px;
+    text-align: center;
+    transform: translateY(250%);
+}
+
 .group {
-    margin-bottom: 15px;
+    margin: auto;
+    margin-bottom: 20px;
     width: 1000px;
     position: relative;
-    left: 55px;
     outline-style: solid;
     outline-width: 1px;
     border-radius: 10px;
     overflow: hidden; /* Instead of changing the header div's borders so that they match the group div's borders, this automatically handles it since header divs are within the group divs */
 }
 
+.header {
+    background-color: rgb(240, 242, 242);
+    padding: 15px;
+}
+
+.header-dark {
+    background-color: #1a1a1aab;
+    padding: 15px;
+}
+
 div.contents {
+    margin: 0;
     padding-left: 15px;
 }
 
@@ -66,7 +83,10 @@ p {
     margin: 0;
 }
 
+p.title {
+    color: rgb(136, 136, 142);
+}
+
 .my-row {
     display: flex;
-    padding: 0px;
 }

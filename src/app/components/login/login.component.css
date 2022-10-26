@@ -1,5 +1,7 @@
 .body-wrapper {
-  background-image: url("../../../assets/images/loginbg.jpg");
+  background-image: linear-gradient(
+    rgba(18, 18, 18, 0.922),
+    rgba(150, 150, 150, 0.676)),url("../../../assets/images/loginbg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -27,6 +29,7 @@ h3 {
   text-align: center;
   padding-top: 10px;
   padding-bottom: 30px;
+  color:rgb(246, 246, 246);
 }
 
 #login-form {

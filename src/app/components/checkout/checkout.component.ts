@@ -74,7 +74,7 @@ export class CheckoutComponent implements OnInit {
       city: this.city,
       state: this.state,
       zip: this.zip,
-      lastDigitsCardNo: this.card.substring(this.card.length - 4),
+      lastDigitsCardNo: ("0000" + this.card).substring(this.card.length - 4),
       costOfItems: 0,
       costOfShipping: 0,
       tax: 0,
@@ -89,6 +89,7 @@ export class CheckoutComponent implements OnInit {
         this.finalProducts.push({id, quantity})
 
         let orderItem = {
+          product: element.product,
           productName: element.product.name,
           productImage: element.product.image,
           productDescription: element.product.description,

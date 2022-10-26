@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DisplayOrdersComponent } from './display-orders.component';
@@ -8,6 +9,12 @@ describe('DisplayOrdersComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+        imports: [
+          HttpClientTestingModule,
+        ],
+        providers: [
+          HttpClientTestingModule ,
+        ],
       declarations: [ DisplayOrdersComponent ]
     })
     .compileComponents();
