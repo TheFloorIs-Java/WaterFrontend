@@ -65,7 +65,7 @@ export class CartComponent implements OnInit {
     this.productService.setCart(cart);
     this.router.navigate(['/home']);
   }
-
+//------------------------------------ Delete Item from cart---------------------------------------
   /**
    * Deletes the product from the cart. Changes are reflected in the on screen cart.
    * @param cartProduct the current product in the cart
@@ -90,6 +90,7 @@ export class CartComponent implements OnInit {
 
     this.productService.setCart(newCart);
   }
+  //------------------------------------ update cart----------------------------------------------------
   /**
    * The updated cart function will update the total price and cart count  after we add or remove products from cart
    * @param productArray 
