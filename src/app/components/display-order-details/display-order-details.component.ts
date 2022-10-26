@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OrderService } from 'src/app/services/order.service';
+import { ThemeServiceService } from 'src/app/services/theme-service.service';
 
 @Component({
   selector: 'app-display-order-details',
@@ -9,17 +10,23 @@ import { OrderService } from 'src/app/services/order.service';
 })
 export class DisplayOrderDetailsComponent implements OnInit {
   orderID! : number;
+  darktheme : boolean = this.themeService.getTheme();
 
-  constructor(public orderService : OrderService, private router : Router, public route : ActivatedRoute) {
+  constructor(public themeService : ThemeServiceService, public orderService : OrderService, private router : Router, public route : ActivatedRoute) {
 
   }
 
   ngOnInit(): void {
+    this.checkTheme();
     this.orderService.loadOrders(); // When refreshing the page, this is necessary to retrieve orders that were locally saved
 
     this.route.queryParams.subscribe(params => {
       this.orderID = this.orderService.orders.length - params['id']; // The most recent order is the first order
     })
+  }
+
+  checkTheme(){
+    this.darktheme = this.themeService.getTheme();
   }
 
   backToOrders() : void {

@@ -1,25 +1,25 @@
 <app-navbar></app-navbar>
 <div class="container">
     <div>
-        <p style="position: relative; left: 55px; font-size: 30px;"> Order History </p>
+        <p style="position: relative; left: 146px; font-size: 30px;"> Order History </p>
 
         <br>
 
        <div *ngFor="let order of orderService.orders">
             <div class="group">
-                <div class="header">
-                    <div class="row">
+                <div [ngClass]=" this.themeService.getTheme() === true ? 'header-dark': 'header' ">
+                    <div class="my-row">
                         <div class="contents">
                             <p class="title">ORDER PLACED</p>
                             <p>{{formattedDate(order.date)}}</p>
                         </div>
 
-                        <div class="contents">
+                        <div class="contents" style="padding-left: 15px;">
                             <p class="title">TOTAL</p>
                             <p>${{order.totalCost}}</p>
                         </div>
 
-                        <div class="contents" style="position: absolute; right: 0; padding-right: 15px">
+                        <div class="contents" style="position: absolute; right: 0; padding-right: 15px; text-align: right;">
                             <p class="title">ORDER NUMBER</p>
                             <p style="position: relative; text-align: right;">{{order.id}}</p>
                         </div>
@@ -30,7 +30,7 @@
                     <app-order-card class="cardListItem" [orderItem]="item"></app-order-card> 
                 </div>
 
-                <div class="header">
+                <div [ngClass]=" this.themeService.getTheme() === true ? 'header-dark': 'header' ">
                     <a [routerLink]="['/order-details']" [queryParams]="{id: order.id}">View order details</a>
                 </div>
             </div>

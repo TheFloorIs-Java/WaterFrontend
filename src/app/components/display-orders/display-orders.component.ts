@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from 'src/app/services/order.service';
 import { Router } from '@angular/router';
+import { ThemeServiceService } from 'src/app/services/theme-service.service';
 
 @Component({
   selector: 'app-display-orders',
@@ -9,13 +10,19 @@ import { Router } from '@angular/router';
 })
 export class DisplayOrdersComponent implements OnInit {
   empty : boolean = false;
+  darktheme : boolean = this.themeService.getTheme();
  
-  constructor(public orderService : OrderService, private router : Router) {
+  constructor(public themeService : ThemeServiceService, public orderService : OrderService, private router : Router) {
 
   }
 
   ngOnInit(): void {
+    this.checkTheme();
     this.retrieveOrders();
+  }
+
+  checkTheme(){
+    this.darktheme = this.themeService.getTheme();
   }
 
   retrieveOrders() : void {
