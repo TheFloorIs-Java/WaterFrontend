@@ -1,12 +1,12 @@
 <app-navbar></app-navbar>
 <div class="container">
     <div>
-        <p style="position: relative; left: 146px; font-size: 30px;"> Order History </p>
+        <p style="position: relative; left: 154px; font-size: 30px;"> Order History </p>
 
         <br>
 
        <div *ngFor="let order of orderService.orders">
-            <div class="group">
+            <div class="group" style="position: relative; left: 8px;">
                 <div [ngClass]=" this.themeService.getTheme() === true ? 'header-dark': 'header' ">
                     <div class="my-row">
                         <div class="contents">
