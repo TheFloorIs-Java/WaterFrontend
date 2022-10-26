@@ -43,6 +43,7 @@
     width:100vw;
     background-color:rgb(255, 92, 92);
     color: #000;
+    transition: background-color 0.4s ease;
 }
 
 .navbar-dark {
@@ -62,6 +63,7 @@
     background-color: #1a1a1aab;
     color: #f1f1f1;
     backdrop-filter: blur(50px);
+    transition: background-color 0.4s ease;
 }
 
 .navbar-container {

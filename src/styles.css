@@ -23,16 +23,29 @@
 }
 
 body.light-mode{
-    /* color: var(--on-background);
-    background-color: var(--background); */
-    background-color: rgb(255,255,255);
+
+    /* background-color: rgb(255,255,255); */
+    background-image: linear-gradient(
+    rgba(255, 255, 255, 1),
+    rgba(221, 221, 221, 0.90)),url("assets/images/loginbg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     color:rgb(66,66,66);
+    transition: background-image 0.4s ease;
     transition: background-color 0.4s ease;
 }
 
 body.dark-mode{
+  background-image: linear-gradient(
+    rgba(27, 27, 27, 0.931),
+    rgba(53, 50, 54, 0.776)),url("assets/images/loginbg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   background-color:  #2b2b2b;
   color: #ffff;
+  transition: background-image 0.4s ease;
   transition: background-color 0.4s ease;
   filter: brightness(.9) contrast(1.2);
 }
