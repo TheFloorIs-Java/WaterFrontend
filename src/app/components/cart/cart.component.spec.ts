@@ -2,10 +2,12 @@ import { DisplayProductsComponent } from './../display-products/display-products
 
 import { ProductService } from './../../services/product.service';
 import { Product } from './../../models/product';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { CartComponent } from './cart.component';
+import { By } from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
 
 describe('CartComponent', () => {
   let component: CartComponent;
@@ -25,7 +27,7 @@ describe('CartComponent', () => {
     })
       .compileComponents();
 
-   fixture = TestBed.createComponent(CartComponent);
+    fixture = TestBed.createComponent(CartComponent);
     component = fixture.componentInstance;
     httpMock = TestBed.inject(HttpTestingController);
     productService = TestBed.inject(ProductService);
@@ -43,25 +45,58 @@ describe('CartComponent', () => {
       }
     );
 
- 
+
     // component.cartCount = 1;
     fixture.detectChanges();
 
   });
 
-  it('should  deleteItemFromCart', () => {
-    let product = new Product(0,"name",0,"description",10,"image");
-    component.cartProducts.push(product);
-    let newout = {
-      cartCount: 1,
-      products: component.cartProducts,
-      totalPrice: 10
-    };
-    console.log(component.cartProducts);
-    console.log(newout.cartCount + " this is before removed");
-    component.deleteItemFromCart(product);
-    console.log(newout.cartCount + " this should be the result");
-    expect(newout.cartCount).toBe(1);
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
+
+  // it('should  deleteItemFromCart', () => {
+  //   let product = new Product(0,"name",0,"description",10,"image");
+  //   component.cartProducts.push(product);
+  //   let newout = {
+  //     cartCount: 1,
+  //     products: component.cartProducts,
+  //     totalPrice: 10
+  //   };
+  //   console.log(component.cartProducts);
+  //   console.log(newout.cartCount + " this is before removed");
+  //   component.deleteItemFromCart(product);
+  //   console.log(newout.cartCount + " this should be the result");
+  //   expect(newout.cartCount).toBe(1);
+  // });
+
+//---------------------------------------------------------------------
+
+  // it('should', fakeAsync(() => {
+  //   let service = TestBed.inject(ProductService);
+
+  //   let product = new Product(0,"name",0,"description",10,"image");
+  //   let cartProduct = { product: product, quantity: 1 };
+  //   component.products.push(cartProduct);
+  //   let newout = {
+  //     cartCount: 1,
+  //     products: component.products,
+  //     totalPrice: 10
+  //   };
+
+  //   service.setCart(newout);
+
+  //   console.log(newout);
+
+  //   spyOn(component, 'deleteItemFromCart');
+  //   let button = fixture.debugElement.nativeElement.querySelector('#del');
+  //   button.click();
+   
+
+  //   tick(2501);
+  //   expect(component.deleteItemFromCart).toHaveBeenCalledTimes(1);
+
+  // }));
+
 
 });

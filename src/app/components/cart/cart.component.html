@@ -16,10 +16,10 @@
       <td [ngClass]=" this.themeService.getTheme() === true ? 'row-dark' : 'row-light' ">{{product.product.name}}</td>
       <td [ngClass]=" this.themeService.getTheme() === true ? 'row-dark' : 'row-light' ">
         <div class="quantityBTN">
-      <td [ngClass]=" this.themeService.getTheme() === true ? 'row-dark' : 'row-light' "><button (click)="incrimentButton(product)"><i
+      <td [ngClass]=" this.themeService.getTheme() === true ? 'row-dark' : 'row-light' "><button id="inc" (click)="incrimentButton(product)"><i
             class="fas fa-plus"></i></button></td>
       <td [ngClass]=" this.themeService.getTheme() === true ? 'row-dark' : 'row-light' ">{{product.quantity}}</td>
-      <td [ngClass]=" this.themeService.getTheme() === true ? 'row-dark' : 'row-light' "><button (click)="decrimentButton(product)"><i
+      <td [ngClass]=" this.themeService.getTheme() === true ? 'row-dark' : 'row-light' "><button id="dec" (click)="decrimentButton(product)"><i
             class="fas fa-minus"></i></button></td>
       </div>
 
@@ -30,7 +30,7 @@
       <td [ngClass]=" this.themeService.getTheme() === true ? 'row-dark' : 'row-light' ">{{product.product.description}}</td>
       <td [ngClass]=" this.themeService.getTheme() === true ? 'row-dark' : 'row-light' ">
       </td>
-      <button (click)="deleteItemFromCart(product.product)"><i class="fa-solid fa-trash-can"></i></button>
+      <button class="delete" id="del" (click)="deleteItemFromCart(product.product)"><i class="fa-solid fa-trash-can"></i></button>
     </tr>
   </tbody>
 </table>
