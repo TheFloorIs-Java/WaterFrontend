@@ -52,7 +52,7 @@ export class NavbarComponent implements OnInit{
 
 
   /**
-   *This is the toggle button for the light/dark theme
+   *This is the toggle function for the light/dark theme
    *It sets the theme for the service bool(global), and darktheme bool(local)
    *global (darkModeService) affects the entire body across the pages
    *local (themeService) affects how a particular component is affected (the navbar in this case)
@@ -69,7 +69,6 @@ export class NavbarComponent implements OnInit{
 
   /**
    * Checks local theme bool with service theme bool
-   * makes sure that the navbar consistently knows the retained bool
    */
 
   checkTheme(){
