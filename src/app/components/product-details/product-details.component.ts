@@ -5,20 +5,15 @@ import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 import { ThemeServiceService } from 'src/app/services/theme-service.service';
 
-
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-  // Plan: Retrieve product details from product-card component
-  // When click on the product, open a page for product details
-
-  // For products details
+  // Variables for managing product details
   id: number = 0;
-  starRating: number = 4;
-
+  starRating: number = 4; // Arbitrary default value 
   product: Product = {
     id: 0,
     name: "",
@@ -28,7 +23,7 @@ export class ProductDetailsComponent implements OnInit {
     image: ""
   };
 
-  // For adding to cart
+  // Variables for managing the cart
   subscription!: Subscription;
   cartCount!: number;
   totalPrice: number = 0;
@@ -37,13 +32,19 @@ export class ProductDetailsComponent implements OnInit {
     quantity: number
   }[] = [];
 
-
+  // Variables for mananging the theme of the page
+  darktheme = this.themeService.getTheme();
 
   constructor(private productService: ProductService,
      private router: Router,
      public themeService : ThemeServiceService ) {
   }
 
+  /**
+   * When the product details page is created, load the product information from the database and store it in the session storage
+   * for future use. If the page is refreshed while the user is viewing the page, reload the product information from session
+   * storage instead. 
+   */
   ngOnInit(): void {
     this.id = history.state.id;
 
@@ -69,13 +70,17 @@ export class ProductDetailsComponent implements OnInit {
     );
   }
 
-  darktheme = this.themeService.getTheme();
-
+  /**
+   * Checks the current theme of the page
+   */
   checkTheme(){
     this.darktheme = this.themeService.getTheme();
   }
 
-
+  /**
+   * Adds the product to the cart
+   * @param product that is currently being viewed on the page
+   */
   addToCart(product: Product): void {
     let inCart = false;
 
@@ -110,9 +115,11 @@ export class ProductDetailsComponent implements OnInit {
     }
   }
 
+  /**
+   * Clears session storage when the component is destroyed
+   */
   ngOnDestroy() {
     this.subscription.unsubscribe();
     sessionStorage.removeItem('currentProduct');
   }
-
 }
