@@ -54,10 +54,10 @@
 }
 
 .group {
-    margin-bottom: 15px;
+    margin: auto;
+    margin-bottom: 20px;
     width: 1000px;
     position: relative;
-    left: 55px;
     outline-style: solid;
     outline-width: 1px;
     border-radius: 10px;
@@ -69,9 +69,13 @@
     padding: 15px;
 }
 
+.header-dark {
+    background-color: #1a1a1aab;
+    padding: 15px;
+}
+
 div.contents {
     margin: 0;
-    padding-left: 15px;
 }
 
 p {
@@ -80,4 +84,8 @@ p {
 
 p.title {
     color: rgb(136, 136, 142);
+}
+
+.my-row {
+    display: flex;
 }
