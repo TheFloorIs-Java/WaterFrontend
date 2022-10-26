@@ -8,7 +8,7 @@
       <a [routerLink]="productLink" class="card-title" (click)="getProductDetails()">{{orderItem.productName}}</a>
       <p class="card-text">{{orderItem.productDescription}}</p>
       <p [ngClass]=" this.themeService.getTheme() === true ? 'cost-dark': 'cost' ">${{orderItem.productPrice}}</p>
-      <p>Quantity: {{orderItem.productQuantity}}</p>
+      <p>Qty: {{orderItem.productQuantity}}</p>
   </div>
   </div>
 </div>
