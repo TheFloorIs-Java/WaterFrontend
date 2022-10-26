@@ -34,10 +34,19 @@ export class DisplayOrderDetailsComponent implements OnInit {
     this.darktheme = this.themeService.getTheme();
   }
 
+  /**
+   * Redirects to order history
+   */
   backToOrders() : void {
     this.router.navigate(["/orders"]);
   }
 
+  /**
+   * Formats the date, e.g. October 4, 2001
+   * 
+   * @param date is the object to be formatted
+   * @returns the formatted date as a string
+   */
   formattedDate(date : Date) : string {
     let monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     date = new Date(date); // For some reason a new "Date" object must be created rather than directly using this object's date field

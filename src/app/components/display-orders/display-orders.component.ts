@@ -25,6 +25,9 @@ export class DisplayOrdersComponent implements OnInit {
     this.darktheme = this.themeService.getTheme();
   }
 
+  /**
+   * Retrieves orders of the current user from the server
+   */
   retrieveOrders() : void {
     this.orderService.getAllOrders().subscribe(
       (resp) => this.orderService.orders = resp,
@@ -41,6 +44,12 @@ export class DisplayOrdersComponent implements OnInit {
     });
   }
 
+  /**
+   * Formats the date, e.g. October 4, 2001
+   * 
+   * @param date is the object to be formatted
+   * @returns the formatted date as a string
+   */
   formattedDate(date : Date) : string {
     let monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     date = new Date(date); // For some reason a new "Date" object must be created rather than directly using this object's date field
