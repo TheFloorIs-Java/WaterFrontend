@@ -13,41 +13,53 @@ describe('CartComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule,],
-      providers: [HttpClientTestingModule,],
+      imports: [
+        HttpClientTestingModule,
+      ],
+      providers: [
+        HttpClientTestingModule,
+      ],
       declarations: [CartComponent]
     })
       .compileComponents();
 
-      });
+   fixture = TestBed.createComponent(CartComponent);
+    component = fixture.componentInstance;
+    httpMock = TestBed.inject(HttpTestingController);
+    productService = TestBed.inject(ProductService);
 
-  it('should  deleteItemFromCart', () => {
-     component.totalPrice = 10.99;
-    component.cartCount = 1;
-     component.products = [
-      {
-        product: {
-          id: 1,
-          name: 'glass',
-          quantity: 1,
-          price: 20,
-          description: 'A nice glass',
-          image: 'blank',
-        },
-        quantity:1
+    // let productService: ProductService;
 
+    productService.getCart().subscribe(
+      (cart) => {
+        component.cartCount = cart.cartCount;
+        component.products = cart.products;
+        component.products.forEach(
+          (element) => component.cartProducts.push(element.product)
+        );
+        component.totalPrice = cart.totalPrice;
       }
-    ]
-       
-    component.deleteItemFromCart(1);
-    expect(component.cartCount).toBe(1);
-    expect(component.totalPrice).toBe(0)
-  });
-});
-
+    );
 
  
+    // component.cartCount = 1;
+    fixture.detectChanges();
 
+  });
 
+  it('should  deleteItemFromCart', () => {
+    let product = new Product(0,"name",0,"description",10,"image");
+    component.cartProducts.push(product);
+    let newout = {
+      cartCount: 1,
+      products: component.cartProducts,
+      totalPrice: 10
+    };
+    console.log(component.cartProducts);
+    console.log(newout.cartCount + " this is before removed");
+    component.deleteItemFromCart(component.cartProducts);
+    console.log(newout.cartCount + " this should be the result");
+    expect(newout.cartCount).toBe(1);
+  });
 
-
+});

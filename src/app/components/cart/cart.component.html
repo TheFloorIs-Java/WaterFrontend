@@ -22,10 +22,13 @@
       <td [ngClass]=" this.themeService.getTheme() === true ? 'row-dark' : 'row-light' "><button (click)="decrimentButton(product)"><i
             class="fas fa-minus"></i></button></td>
       </div>
+
+      <!-- <div *ngFor="let item of toDos;let index = index;trackBy:trackByIndex;">
+        <input [(ngModel)]="toDos[index]" placeholder="item"> -->
       </td>
       <!-- <th scope="col">Action</th> -->
       <td [ngClass]=" this.themeService.getTheme() === true ? 'row-dark' : 'row-light' ">{{product.product.description}}</td>
-      <td [ngClass]=" this.themeService.getTheme() === true ? 'row-dark' : 'row-light' ">
+      <td [ngClass]=" this.themeService.getTheme() === true ? 'row-dark' : 'row-light' " >
         <button (click)="deleteItemFromCart(product)"><i class="fa-solid fa-trash-can"></i></button>
       </td>
     </tr>
