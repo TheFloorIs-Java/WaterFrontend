@@ -1,7 +1,7 @@
 import { Product } from 'src/app/models/product';
 import { HttpClient } from '@angular/common/http';
 import { ThemeServiceService } from 'src/app/services/theme-service.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { ProductService } from 'src/app/services/product.service';
@@ -12,20 +12,19 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+  darktheme : boolean = this.themeService.getTheme();
 
   products: {
     product: Product,
     quantity: number,
   }[] = [];
-  /**
-   * there was ! sign on total price
-   */
+
   totalPrice!: number;
   cartProducts: Product[] = [];
   cartCount!: number;
 
   constructor(private productService: ProductService,
-     private http: HttpClient,
+      private http: HttpClient,
       private router: Router,
       public themeService : ThemeServiceService) {
 
@@ -39,23 +38,18 @@ export class CartComponent implements OnInit {
         this.cartCount = cart.cartCount;
         this.products = cart.products;
         this.products.forEach(
-
           (element) => this.cartProducts.push(element.product)
         );
         this.totalPrice = cart.totalPrice;
       }
     );
-
+    console.log(this.products);
   }
-
-  darktheme : boolean = this.themeService.getTheme();
 
   checkTheme(){
     this.darktheme = this.themeService.getTheme();
     console.log(this.darktheme);
   }
-
-
 
   emptyCart(): void {
     let cart = {
@@ -67,32 +61,42 @@ export class CartComponent implements OnInit {
     this.router.navigate(['/home']);
   }
 
-  deleteItemFromCart(productArray: any): void {
-    this.deleteProductFromScreen(productArray);
-    let newout = {
+  getCartIndex(index: number, cartProduct: {p: Product, quantity: number}): number {
+    return index;
+  }
+
+  deleteItemFromCart(cartProduct: Product): void {
+    let newCart = {
       cartCount: 0,
       products: this.products,
       totalPrice: 0
     };
 
-    newout.cartCount = this.cartCount - productArray.quantity;
-    newout.totalPrice = this.totalPrice - productArray.product.price * productArray.quantity
+    // Find the correct product and update the cart's total price and quantity
+    for (let i = 0; i < this.products.length; i++) {
+      if (this.products[i].product.id === cartProduct.id) {
+        newCart.cartCount = this.cartCount - this.products[i].quantity;
+        newCart.totalPrice = this.totalPrice - this.products[i].product.price * this.products[i].quantity;
+        break;
+      }
+    }
 
-    this.productService.setCart(newout);
+    this.productService.setCart(newCart);
+    this.deleteProductFromScreen(cartProduct);
   }
 
 
   /**
    * This for loop removes the whole product selection from screen/cart instead of its singular quantity
+   * Getting the product from the template
    */
-  deleteProductFromScreen(productArray: any) {
+  deleteProductFromScreen(cartProduct: Product) {
+    console.log(cartProduct.name);
     for (let i = 0; i < this.products.length; i += 1) {
-      if (this.products[i].product.id === productArray.product.id) {
+      if (this.products[i].product.id === cartProduct.id) {
         this.products.splice(i, 1);
-        console.log(this.cartCount);
         break;
       }
-
     }
   }
 
@@ -112,12 +116,6 @@ export class CartComponent implements OnInit {
     }
     this.productService.setCart(newout);
   }
-
-
-
-
-
-
 
 incrimentButton(productArray: any){
   if (productArray.quantity + 1 <= productArray.product.quantity) {
