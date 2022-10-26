@@ -10,7 +10,7 @@
     </tr>
   </thead>
   <tbody [ngClass]=" this.themeService.getTheme() === true ? 'row-dark ' : 'row-light ' " id="cart-table-body">
-    <tr *ngFor="let product of products;">
+    <tr *ngFor="let product of products">
       <td [ngClass]=" this.themeService.getTheme() === true ? 'row-dark' : 'row-light' ">{{product.product.id}}</td>
       <td [ngClass]=" this.themeService.getTheme() === true ? 'row-dark' : 'row-light' ">{{product.product.name}}</td>
       <td [ngClass]=" this.themeService.getTheme() === true ? 'row-dark' : 'row-light' ">
@@ -25,8 +25,8 @@
       <!-- <th scope="col">Action</th> -->
       <td [ngClass]=" this.themeService.getTheme() === true ? 'row-dark' : 'row-light' ">{{product.product.description}}</td>
       <td [ngClass]=" this.themeService.getTheme() === true ? 'row-dark' : 'row-light' ">
-        <button (click)="deleteItemFromCart(product)"><i class="fa-solid fa-trash-can"></i></button>
       </td>
+      <button (click)="deleteItemFromCart(product.product)"><i class="fa-solid fa-trash-can"></i></button>
     </tr>
   </tbody>
 </table>

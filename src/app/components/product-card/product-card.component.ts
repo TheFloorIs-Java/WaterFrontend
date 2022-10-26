@@ -46,7 +46,6 @@ export class ProductCardComponent implements OnInit{
   }
 
   addToCart(product: Product): void {
-
     let inCart = false;
 
     this.products.forEach(
@@ -105,8 +104,4 @@ export class ProductCardComponent implements OnInit{
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
-
-
-
-
 }
