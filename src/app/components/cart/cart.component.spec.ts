@@ -1,3 +1,5 @@
+import { DisplayProductsComponent } from './../display-products/display-products.component';
+
 import { ProductService } from './../../services/product.service';
 import { Product } from './../../models/product';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
