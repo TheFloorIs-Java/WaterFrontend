@@ -1,10 +1,9 @@
 import { Product } from 'src/app/models/product';
 import { HttpClient } from '@angular/common/http';
-import { ThemeServiceService } from 'src/app/services/theme-service.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { ProductService } from 'src/app/services/product.service';
+import { ThemeServiceService } from 'src/app/services/theme-service.service';
 
 @Component({
   selector: 'app-cart',
@@ -32,7 +31,6 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkTheme();
-    console.log(this.darktheme);
     this.productService.getCart().subscribe(
       (cart) => {
         this.cartCount = cart.cartCount;
@@ -43,7 +41,6 @@ export class CartComponent implements OnInit {
         this.totalPrice = cart.totalPrice;
       }
     );
-    console.log(this.products);
   }
 
   checkTheme() {
@@ -73,27 +70,13 @@ export class CartComponent implements OnInit {
       if (this.products[i].product.id === cartProduct.id) {
         newCart.cartCount = this.cartCount - this.products[i].quantity;
         newCart.totalPrice = this.totalPrice - this.products[i].product.price * this.products[i].quantity;
+
+        this.products.splice(i, 1);
         break;
       }
     }
 
     this.productService.setCart(newCart);
-    this.deleteProductFromScreen(cartProduct);
-  }
-
-
-  /**
-   * This for loop removes the whole product selection from screen/cart instead of its singular quantity
-   * Getting the product from the template
-   */
-  deleteProductFromScreen(cartProduct: Product) {
-    console.log(cartProduct.name);
-    for (let i = 0; i < this.products.length; i += 1) {
-      if (this.products[i].product.id === cartProduct.id) {
-        this.products.splice(i, 1);
-        break;
-      }
-    }
   }
 
   updateCart(productArray: any, add: boolean) {
@@ -108,7 +91,6 @@ export class CartComponent implements OnInit {
     } else {
       newout.cartCount = this.cartCount - 1;
       newout.totalPrice = this.totalPrice - productArray.product.price
-
     }
     this.productService.setCart(newout);
   }
@@ -117,7 +99,6 @@ export class CartComponent implements OnInit {
     if (productArray.quantity + 1 <= productArray.product.quantity) {
       productArray.quantity = productArray.quantity + 1;
       this.updateCart(productArray, true);
-      //  this.productService.incrimentButton(Product.quantity)
     }
   }
 
