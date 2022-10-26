@@ -12,7 +12,7 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  darktheme : boolean = this.themeService.getTheme();
+  darktheme: boolean = this.themeService.getTheme();
 
   products: {
     product: Product,
@@ -26,9 +26,9 @@ export class CartComponent implements OnInit {
    
 
   constructor(private productService: ProductService,
-      private http: HttpClient,
-      private router: Router,
-      public themeService : ThemeServiceService) {
+    private http: HttpClient,
+    private router: Router,
+    public themeService: ThemeServiceService) {
 
   }
 
@@ -48,7 +48,7 @@ export class CartComponent implements OnInit {
     console.log(this.products);
   }
 
-  checkTheme(){
+  checkTheme() {
     this.darktheme = this.themeService.getTheme();
     console.log(this.darktheme);
   }
@@ -61,10 +61,6 @@ export class CartComponent implements OnInit {
     };
     this.productService.setCart(cart);
     this.router.navigate(['/home']);
-  }
-
-  getCartIndex(index: number, cartProduct: {p: Product, quantity: number}): number {
-    return index;
   }
 
   deleteItemFromCart(cartProduct: Product): void {
@@ -108,35 +104,31 @@ export class CartComponent implements OnInit {
       products: this.products,
       totalPrice: 0
     };
-    if(add) {
+    if (add) {
       newout.cartCount = this.cartCount + 1;
       newout.totalPrice = this.totalPrice + productArray.product.price
     } else {
-      newout.cartCount = this.cartCount -1;
+      newout.cartCount = this.cartCount - 1;
       newout.totalPrice = this.totalPrice - productArray.product.price
 
     }
     this.productService.setCart(newout);
   }
 
-incrimentButton(productArray: any){
-  if (productArray.quantity + 1 <= productArray.product.quantity) {
-    productArray.quantity = productArray.quantity + 1;
-  this.updateCart(productArray, true);
-    //  this.productService.incrimentButton(Product.quantity)
+  incrimentButton(productArray: any) {
+    if (productArray.quantity + 1 <= productArray.product.quantity) {
+      productArray.quantity = productArray.quantity + 1;
+      this.updateCart(productArray, true);
+      //  this.productService.incrimentButton(Product.quantity)
+    }
   }
-}
 
-
-decrimentButton(productArray : any){
-  if (productArray.quantity - 1 >= 0) {
-    productArray.quantity = productArray.quantity - 1;
-    this.updateCart(productArray, false);
+  decrimentButton(productArray: any) {
+    if (productArray.quantity - 1 >= 0) {
+      productArray.quantity = productArray.quantity - 1;
+      this.updateCart(productArray, false);
+    }
   }
-}
-
-
-
 }
 
 
