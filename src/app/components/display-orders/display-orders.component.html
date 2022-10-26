@@ -27,7 +27,7 @@
                 </div>
 
                 <div *ngFor="let item of order.items">
-                    <app-order-card class="cardListItem" [orderItem]="item"></app-order-card> 
+                    <app-order-card class="cardListItem" [productLink]="'/' + item.product + '/details'" [productInfo]="item.product" [orderItem]="item"></app-order-card> 
                 </div>
 
                 <div [ngClass]=" this.themeService.getTheme() === true ? 'header-dark': 'header' ">

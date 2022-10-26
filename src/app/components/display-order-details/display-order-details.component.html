@@ -1,10 +1,10 @@
 <app-navbar></app-navbar>
 <div class="container">
     <div>
-        <p style="position: relative; left: 55px; font-size: 30px;"> Order Details </p>
+        <p style="position: relative; left: 146px; font-size: 30px;"> Order Details </p>
 
-        <p style="position: relative; left: 55px;"> Order number: {{orderService.orders[orderID].id}} </p>
-        <p style="position: relative; left: 55px;"> Ordered on {{formattedDate(orderService.orders[orderID].date)}} </p>
+        <p style="position: relative; left: 146px;"> Order number: {{order.id}} </p>
+        <p style="position: relative; left: 146px;"> Ordered on {{formattedDate(order.date)}} </p>
 
         <br>
 
@@ -12,34 +12,34 @@
             <div class="my-row">
                 <div class="contents">
                     <p style="padding-top: 8px; font-weight: bold;">Billing Information</p>
-                    <p> {{orderService.orders[orderID].name}}</p>
-                    <p> {{orderService.orders[orderID].street | uppercase}} </p>
-                    <p> {{orderService.orders[orderID].city | uppercase}}, {{orderService.orders[orderID].state | uppercase}} {{orderService.orders[orderID].zip}}</p>
+                    <p> {{order.name}}</p>
+                    <p> {{order.street | uppercase}} </p>
+                    <p> {{order.city | uppercase}}, {{order.state | uppercase}} {{order.zip}}</p>
                     <p style="padding-bottom: 8px;">United States</p>
                 </div>
 
                 <div class="contents" style="position: relative; left: 70px;">
                     <p style="padding-top: 8px; font-weight: bold;">Payment Method</p>
-                    <p style="padding-bottom: 8px;"> **** {{orderService.orders[orderID].lastDigitsCardNo}} </p>
+                    <p style="padding-bottom: 8px;"> **** {{order.lastDigitsCardNo}} </p>
                 </div>
 
                 <div class="contents" style="margin-left: auto; padding-right: 15px;">
                     <p style="padding-top: 8px; font-weight: bold;">Order Summary</p>
-                    <p> Item(s) Subtotal: ${{orderService.orders[orderID].costOfItems}} </p>
-                    <p> Shipping: ${{orderService.orders[orderID].costOfShipping}} </p>
-                    <p> Tax: ${{orderService.orders[orderID].tax}} </p>
-                    <p style="padding-bottom: 8px; font-weight: bold;">Grand Total: ${{orderService.orders[orderID].totalCost}}</p>
+                    <p> Item(s) Subtotal: ${{order.costOfItems}} </p>
+                    <p> Shipping: ${{order.costOfShipping}} </p>
+                    <p> Tax: ${{order.tax}} </p>
+                    <p style="padding-bottom: 8px; font-weight: bold;">Grand Total: ${{order.totalCost}}</p>
                 </div>
             </div>
         </div>
 
         <div class="group">
-            <div *ngFor="let orderItem of orderService.orders[orderID].items">
-                <app-order-card class="cardListItem" [orderItem]="orderItem"></app-order-card> 
+            <div *ngFor="let item of order.items">
+                <app-order-card [productLink]="'/' + item.name + '/details'" [productInfo]="item.product" class="cardListItem" [orderItem]="item"></app-order-card> 
             </div>
         </div>
 
-        <a routerLink="/orders" style="position: relative; left: 55px">Back to order history</a>
+        <a routerLink="/orders" style="position: relative; left: 146px;">Back to order history</a>
 
         <br>
         <br>
