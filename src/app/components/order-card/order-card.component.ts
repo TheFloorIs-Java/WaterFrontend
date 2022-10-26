@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ThemeServiceService } from 'src/app/services/theme-service.service';
 
 @Component({
   selector: 'app-order-card',
@@ -9,7 +10,7 @@ export class OrderCardComponent implements OnInit {
   @Input()
   orderItem! : any;
 
-  constructor() {
+  constructor(public themeService : ThemeServiceService) {
 
   }
 

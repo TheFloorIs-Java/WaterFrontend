@@ -65,8 +65,7 @@ export class CheckoutComponent implements OnInit {
     this.darktheme = this.themeService.getTheme();
     console.log(this.darktheme);
   }
-
-
+  
   onSubmit(): void {
     let order = {
       user: {email: localStorage.getItem("email")},
@@ -103,8 +102,6 @@ export class CheckoutComponent implements OnInit {
     );
 
     order.totalCost = order.costOfItems + order.costOfShipping + order.tax;
-
-    console.log(order);
 
     this.orderService.submitOrder(order);
 

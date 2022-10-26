@@ -1,4 +1,4 @@
-<div class="card" style="width: 100%;">
+<div [ngClass]=" this.themeService.getTheme() === true ? 'my-card-dark': 'my-card' " style="width: 100%;">
   <div class="my-row">
     <div class="left">
       <img [src]="orderItem.productImage">
