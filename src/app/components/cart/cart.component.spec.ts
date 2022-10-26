@@ -59,7 +59,7 @@ describe('CartComponent', () => {
     };
     console.log(component.cartProducts);
     console.log(newout.cartCount + " this is before removed");
-    component.deleteItemFromCart(component.cartProducts);
+    component.deleteItemFromCart(product);
     console.log(newout.cartCount + " this should be the result");
     expect(newout.cartCount).toBe(1);
   });
