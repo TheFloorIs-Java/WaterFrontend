@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   withCredentials: true,
-  // baseUrl: "http://localhost:8080",
+  //baseUrl: "http://localhost:8080",
   baseUrl: "https://teamwater.azurewebsites.net",
   headers: {
     'Content-Type': 'application/json',

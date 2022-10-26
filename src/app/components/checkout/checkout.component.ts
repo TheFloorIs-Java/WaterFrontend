@@ -74,7 +74,7 @@ export class CheckoutComponent implements OnInit {
       city: this.city,
       state: this.state,
       zip: this.zip,
-      lastDigitsCardNo: ("0000" + this.card).substring(this.card.length - 4),
+      lastDigitsCardNo: ("0000" + this.card).substring(this.card.length),
       costOfItems: 0,
       costOfShipping: 0,
       tax: 0,
