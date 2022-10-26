@@ -114,6 +114,12 @@ export class CartComponent implements OnInit {
     }
     this.productService.setCart(newout);
   }
+  /**
+   * 
+   * @param productArray this function is for the incriment button in quantity section 
+   * when  we press this button it add that product by one until the quantity in stock will be 0
+   * 
+   */
 
   incrimentButton(productArray: any) {
     if (productArray.quantity + 1 <= productArray.product.quantity) {
@@ -122,6 +128,12 @@ export class CartComponent implements OnInit {
       //  this.productService.incrimentButton(Product.quantity)
     }
   }
+  /**
+   * 
+   * @param productArray this  function is for the decriment button in quantity section 
+   * when  we press this button it decrease by 1 until the quantity in stock will be 0 
+   * 
+   */
 
   decrimentButton(productArray: any) {
     if (productArray.quantity - 1 >= 0) {
