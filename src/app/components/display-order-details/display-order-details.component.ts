@@ -9,7 +9,7 @@ import { ThemeServiceService } from 'src/app/services/theme-service.service';
   styleUrls: ['./display-order-details.component.css']
 })
 export class DisplayOrderDetailsComponent implements OnInit {
-  orderID! : number;
+  order! : any;
   darktheme : boolean = this.themeService.getTheme();
 
   constructor(public themeService : ThemeServiceService, public orderService : OrderService, private router : Router, public route : ActivatedRoute) {
@@ -21,7 +21,12 @@ export class DisplayOrderDetailsComponent implements OnInit {
     this.orderService.loadOrders(); // When refreshing the page, this is necessary to retrieve orders that were locally saved
 
     this.route.queryParams.subscribe(params => {
-      this.orderID = this.orderService.orders.length - params['id']; // The most recent order is the first order
+      for (let i = 0; i < this.orderService.orders.length; i++) {
+        if (this.orderService.orders[i].id == params["id"]) {
+          this.order = this.orderService.orders[i];
+          break;
+        }
+      }
     })
   }
 

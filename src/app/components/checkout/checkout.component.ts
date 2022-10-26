@@ -89,6 +89,7 @@ export class CheckoutComponent implements OnInit {
         this.finalProducts.push({id, quantity})
 
         let orderItem = {
+          product: element.product,
           productName: element.product.name,
           productImage: element.product.image,
           productDescription: element.product.description,

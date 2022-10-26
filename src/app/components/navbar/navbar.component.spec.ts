@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { NavbarComponent } from './navbar.component';
+import { ThemeServiceService } from 'src/app/services/theme-service.service';
 
 
 describe('NavbarComponent', () => {
@@ -35,12 +36,10 @@ describe('NavbarComponent', () => {
 
 
   it('should test themeService', () => {
+    let service = TestBed.inject(ThemeServiceService);
     component.toggled();
-    expect(component.darktheme).toBe(true);
-    component.toggled();
-    expect(component.darktheme).toBe(false);
-    component.toggled();
-    expect(component.darktheme).toBe(true);
+    expect(service.getTheme()).toBe(component.darktheme);
+
 
   });
 
