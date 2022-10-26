@@ -10,6 +10,9 @@ export class ThemeServiceService {
 
   constructor(private darkModeService : DarkModeService,) {
 
+    /**
+     * Subscribes the observables state change to the global theme service
+     */
     this.darkMode$.subscribe(
       data=> {this.theme = data}
    )
