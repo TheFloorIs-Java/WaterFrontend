@@ -59,7 +59,7 @@ export class CartComponent implements OnInit {
     this.productService.setCart(cart);
     this.router.navigate(['/home']);
   }
-
+//-------------------------------------------Delete item from cart------------------------------------------------
   deleteItemFromCart(cartProduct: Product): void {
     let newCart = {
       cartCount: 0,
@@ -96,11 +96,10 @@ export class CartComponent implements OnInit {
     }
     this.productService.setCart(newout);
   }
+  // -------------------------------------Increment Button----------------------------------------
   /**
-   * 
-   * @param productArray this function is for the incriment button in quantity section 
-   * when  we press this button it add that product by one until the quantity in stock will be 0
-   * 
+   This function is for the incriment  button |+| in quantity section 
+   * when  we press this button it add that product by one until we will be out of Stock
    */
 
   incrimentButton(productArray: any) {
@@ -109,11 +108,11 @@ export class CartComponent implements OnInit {
       this.updateCart(productArray, true);
     }
   }
+
+  // ------------------------------Decriment Button---------------------------------------
   /**
-   * 
-   * @param productArray this  function is for the decriment button in quantity section 
+     * This  function is for the decriment button |-|  in quantity section 
    * when  we press this button it decrease by 1 until the quantity in stock will be 0 
-   * 
    */
 
   decrimentButton(productArray: any) {
