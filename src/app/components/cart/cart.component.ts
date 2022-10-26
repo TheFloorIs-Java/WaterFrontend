@@ -26,9 +26,12 @@ export class CartComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     public themeService: ThemeServiceService) {
-
   }
 
+  /**
+   * Initializes the cart with products the user added from the home screen or the product details page when the
+   * page is loaded.
+   */
   ngOnInit(): void {
     this.checkTheme();
     this.productService.getCart().subscribe(
@@ -48,6 +51,9 @@ export class CartComponent implements OnInit {
     console.log(this.darktheme);
   }
 
+  /**
+   * Resets the cart to empty and redirects user back to the home page
+   */
   emptyCart(): void {
     let cart = {
       cartCount: 0,
@@ -58,6 +64,10 @@ export class CartComponent implements OnInit {
     this.router.navigate(['/home']);
   }
 
+  /**
+   * Deletes the product from the cart. Changes are reflected in the on screen cart.
+   * @param cartProduct the current product in the cart
+   */
   deleteItemFromCart(cartProduct: Product): void {
     let newCart = {
       cartCount: 0,
