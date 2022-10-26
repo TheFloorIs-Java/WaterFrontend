@@ -54,7 +54,7 @@ describe('CartComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
+//-----------------------------------------------------------------------
   // it('should  deleteItemFromCart', () => {
   //   let product = new Product(0,"name",0,"description",10,"image");
   //   component.cartProducts.push(product);
